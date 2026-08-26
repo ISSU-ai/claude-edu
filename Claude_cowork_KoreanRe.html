@@ -79,6 +79,7 @@
     font-weight:800;
     color:var(--ink);
   }
+  h1.nowrap{ white-space:nowrap; }
   h2{
     font-size:clamp(1.5rem,2.6vw,2.1rem);
     font-weight:800;
@@ -427,10 +428,11 @@
     margin-top:36px;
     padding:40px 48px;
     gap:44px;
-    max-width:820px;
+    max-width:none;
+    width:fit-content;
   }
-  .link-block.big .link-url{ font-size:2.6rem; }
-  .link-block.big .link-note{ font-size:1.2rem; margin-top:16px; }
+  .link-block.big .link-url{ font-size:2.6rem; white-space:nowrap; }
+  .link-block.big .link-note{ font-size:1.2rem; margin-top:16px; white-space:nowrap; }
 
   /* ---- product screenshot layout (Chat/Cowork/Code slides) ---- */
   .shot-layout{
@@ -882,7 +884,7 @@
   <!-- 20: practice materials link -->
   <section class="slide dark-slide" id="s20">
     <div class="eyebrow">실습 자료</div>
-    <h1>지금 이 주소로<br>접속하세요</h1>
+    <h1 class="nowrap">지금 이 주소로 접속하세요</h1>
     <div class="link-block big">
       <div class="link-info">
         <div class="link-url" id="linkUrl"></div>
