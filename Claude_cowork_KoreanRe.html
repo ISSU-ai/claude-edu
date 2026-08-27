@@ -540,6 +540,28 @@
     line-height:1.6;
   }
   .eval-footnote b{ color:var(--accent-ink); }
+
+  /* ---- print / PDF export: one slide per page ---- */
+  @media print{
+    .gate, .chrome, .notes-panel{ display:none !important; }
+    html, body{ height:auto !important; overflow:visible !important; background:#fff !important; }
+    body.locked .deck{ display:block !important; }
+    .deck{ position:static !important; width:auto !important; height:auto !important; }
+    .slide{
+      position:relative !important;
+      inset:auto !important;
+      opacity:1 !important;
+      transform:none !important;
+      pointer-events:auto !important;
+      page-break-after:always;
+      break-after:page;
+      width:1280px;
+      height:720px;
+    }
+    .slide:last-child{ page-break-after:auto; break-after:auto; }
+    .no-print{ display:none !important; }
+  }
+  @page{ size:1280px 720px; margin:0; }
 </style>
 </head>
 <body class="locked">
@@ -568,7 +590,7 @@
         <p>사람보다 AI한테 잔소리를 더 많이 하는 사람 — 오늘 그 요령을 나눠드립니다.</p>
         <div class="today"><span class="today-tag">오늘 할 일</span>여러분을 Cowork 중독자로 만들기</div>
       </div>
-      <div class="card">
+      <div class="card no-print">
         <span class="num">교육자 2</span>
         <h3>김지민</h3>
         <span class="role">메가존클라우드 · Data &amp; AI Unit</span>
