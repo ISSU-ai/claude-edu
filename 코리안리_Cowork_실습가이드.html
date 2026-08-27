@@ -2393,6 +2393,22 @@ E6 원본 : 원본 파일을 수정하거나 삭제했는가
     window.scrollTo(0, 0);
   });
 
+  // ── 인쇄 시에는 버튼 없이도 전체 보기와 동일하게 트랙 블록을 펼칩니다 ──
+  var wasShowAll = false;
+  window.addEventListener("beforeprint", function () {
+    wasShowAll = document.body.classList.contains("show-all");
+    document.body.classList.add("show-all");
+    trackBlocks.forEach(function (el) {
+      el.style.display = (el.dataset.track === "none") ? "none" : "";
+    });
+  });
+  window.addEventListener("afterprint", function () {
+    if (!wasShowAll) {
+      document.body.classList.remove("show-all");
+      setTrack(state.__track || "");
+    }
+  });
+
   document.getElementById("reset").addEventListener("click", function () {
     if (!window.confirm("체크한 내용과 적어둔 메모를 모두 지웁니다. 계속할까요?")) { return; }
     state = { __pane: state.__pane };
