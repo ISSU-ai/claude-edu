@@ -357,60 +357,6 @@
     .title-slide .stamp-mark{ display:none; }
   }
 
-  /* ---- access gate ---- */
-  body.locked .deck,
-  body.locked .chrome,
-  body.locked .notes-panel{ display:none; }
-  .gate{
-    position:fixed; inset:0; z-index:100;
-    background:var(--bg);
-    display:flex; align-items:center; justify-content:center;
-  }
-  .gate.hidden{ display:none; }
-  .gate-box{
-    background:var(--card);
-    border:1px solid var(--line);
-    padding:44px 38px;
-    width:320px;
-  }
-  .gate-box .eyebrow{ margin-bottom:22px; }
-  .gate-box h2{
-    font-size:1.25rem;
-    font-weight:800;
-    margin:0 0 22px;
-    color:var(--ink);
-  }
-  .gate-box input{
-    width:100%;
-    font-family:var(--mono);
-    font-size:.95rem;
-    padding:11px 12px;
-    border:1px solid var(--line);
-    margin-bottom:12px;
-    outline:none;
-    box-sizing:border-box;
-  }
-  .gate-box input:focus{ border-color:var(--accent); }
-  .gate-box button{
-    width:100%;
-    font-family:var(--mono);
-    background:var(--ink);
-    color:#fff;
-    border:none;
-    padding:11px 12px;
-    cursor:pointer;
-    font-size:.85rem;
-    letter-spacing:.04em;
-  }
-  .gate-box button:hover{ background:var(--accent-ink); }
-  .gate-err{
-    font-family:var(--mono);
-    font-size:.78rem;
-    color:#C0392B;
-    margin:10px 0 0;
-    min-height:1em;
-  }
-
   /* ---- practice link card (on closing slide) ---- */
   .link-block{
     margin-top:32px;
@@ -543,9 +489,8 @@
 
   /* ---- print / PDF export: one slide per page ---- */
   @media print{
-    .gate, .chrome, .notes-panel{ display:none !important; }
+    .chrome, .notes-panel{ display:none !important; }
     html, body{ height:auto !important; overflow:visible !important; background:#fff !important; }
-    body.locked .deck{ display:block !important; }
     .deck{ position:static !important; width:auto !important; height:auto !important; }
     .slide{
       position:relative !important;
@@ -564,17 +509,7 @@
   @page{ size:1280px 720px; margin:0; }
 </style>
 </head>
-<body class="locked">
-
-<div class="gate" id="gate">
-  <div class="gate-box">
-    <div class="eyebrow">코리안리재보험 · Claude Cowork 교육</div>
-    <h2>접속 코드를 입력하세요</h2>
-    <input type="password" id="gatePw" placeholder="ACCESS CODE" autocomplete="off">
-    <button id="gateBtn">입장</button>
-    <p class="gate-err" id="gateErr"></p>
-  </div>
-</div>
+<body>
 
 <div class="deck" id="deck">
 
@@ -590,7 +525,7 @@
         <p>사람보다 AI한테 잔소리를 더 많이 하는 사람 — 오늘 그 요령을 나눠드립니다.</p>
         <div class="today"><span class="today-tag">오늘 할 일</span>여러분을 Cowork 중독자로 만들기</div>
       </div>
-      <div class="card no-print">
+      <div class="card">
         <span class="num">교육자 2</span>
         <h3>김지민</h3>
         <span class="role">메가존클라우드 · Data &amp; AI Unit</span>
@@ -1079,36 +1014,6 @@ if (isStage) {
 }
 
 render();
-
-/* ---- access gate ---- */
-// TODO: 실제 접속 코드로 교체하세요
-const ACCESS_CODE = "cowork0902";
-
-const gateEl = document.getElementById('gate');
-const gatePw = document.getElementById('gatePw');
-const gateBtn = document.getElementById('gateBtn');
-const gateErr = document.getElementById('gateErr');
-
-function tryEnter(){
-  if(gatePw.value === ACCESS_CODE){
-    document.body.classList.remove('locked');
-    gateEl.classList.add('hidden');
-    sessionStorage.setItem('kr_cowork_auth', '1');
-  } else {
-    gateErr.textContent = '코드가 올바르지 않습니다.';
-    gatePw.value = '';
-    gatePw.focus();
-  }
-}
-gateBtn.addEventListener('click', tryEnter);
-gatePw.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') tryEnter(); });
-
-if(sessionStorage.getItem('kr_cowork_auth') === '1'){
-  document.body.classList.remove('locked');
-  gateEl.classList.add('hidden');
-} else {
-  gatePw.focus();
-}
 
 /* ---- practice materials link + QR ---- */
 const PRACTICE_URL = "https://issu-ai.github.io/claude-edu/";
