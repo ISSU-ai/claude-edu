@@ -152,6 +152,29 @@
     box-shadow:0 0 0 1px var(--accent) inset;
   }
   .card.hi h3{ color:var(--accent-ink); }
+  .card .role{
+    display:block;
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:.06em;
+    color:var(--accent-ink);
+    margin:-4px 0 12px;
+  }
+  .card .today{
+    margin-top:16px;
+    padding-top:14px;
+    border-top:1px dashed var(--line);
+    font-size:.9rem;
+    color:var(--body);
+  }
+  .card .today .today-tag{
+    font-family:var(--mono);
+    font-size:.68rem;
+    letter-spacing:.08em;
+    color:var(--accent);
+    text-transform:uppercase;
+    margin-right:8px;
+  }
 
   /* ---- agenda slide ---- */
   .agenda-list{ margin-top:8px; }
@@ -545,6 +568,27 @@
     <div class="stamp-mark"><span>10 MIN</span><span>LECTURE</span></div>
   </section>
 
+  <!-- 0b: Speakers -->
+  <section class="slide" id="s-intro">
+    <div class="eyebrow">오늘의 진행자</div>
+    <h2>오늘 함께합니다</h2>
+    <div class="card-row">
+      <div class="card hi">
+        <span class="num">MC</span>
+        <h3>유원영</h3>
+        <span class="role">메가존클라우드 · Data &amp; AI Unit</span>
+        <p>사람보다 AI한테 잔소리를 더 많이 하는 사람 — 오늘 그 요령을 나눠드립니다.</p>
+        <div class="today"><span class="today-tag">오늘 할 일</span>여러분을 Cowork 중독자로 만들기</div>
+      </div>
+      <div class="card">
+        <span class="num">함께</span>
+        <h3>김지민</h3>
+        <span class="role">메가존클라우드 · Data &amp; AI Unit</span>
+        <p>파일이든 생각이든 일단 정규화부터 하는 사람 — 모든 폴더에 기본키(Primary Key)가 있다고 믿습니다. 정리가 특기라 AI 부리는 것도 남다르게 잘합니다.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- 1: Agenda -->
   <section class="slide" id="s1">
     <div class="eyebrow">오늘 10분 동안</div>
@@ -914,6 +958,7 @@
 <script>
 const notes = [
 `오늘은 10분 동안 스무 장을 빠르게 넘기면서, Chat·Code·Cowork가 어떻게 다른지, 그리고 오늘 실습에서 지킬 기준 하나를 짚겠습니다.`,
+`오늘 진행은 메가존클라우드 Data&AI Unit의 유원영, 김지민이 함께합니다. 잘 부탁드립니다.`,
 `오늘 세 파트로 갑니다. Claude의 세 가지 문, Cowork에게 일을 맡기는 방식, 그리고 맡기기 전에 세워야 할 기준. 나머지 주제는 교육 후 자료로 따로 드립니다.`,
 `Chat은 여러분이 익숙한 대화형입니다. 물으면 답하고, 실행은 사람이 직접 합니다.`,
 `Cowork는 다릅니다. 목표만 설명하면 여러 파일과 앱을 가로질러 다단계 작업을 대신 수행합니다. 코드를 몰라도 됩니다.`,
