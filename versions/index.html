@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>실습가이드 버전 기록</title>
+<style>
+  :root{
+    --paper:#F4F7F7; --surface:#FFFFFF; --ink:#0C1A1C; --ink-2:#3C5153;
+    --ink-3:#6D8385; --rule:#CFDBDB; --accent:#076560; --accent-ink:#FFFFFF;
+    --sans:Pretendard,-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Segoe UI','맑은 고딕','Malgun Gothic',sans-serif;
+    --mono:'Cascadia Mono',Consolas,ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{--paper:#081113;--surface:#0F1B1D;--ink:#E1ECEB;--ink-2:#A3B9B8;
+      --ink-3:#77908F;--rule:#21373A;--accent:#5CC0B6;--accent-ink:#04211F;}
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+    font-size:16px;line-height:1.7;word-break:keep-all;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:720px;margin:0 auto;padding:56px 20px 80px;}
+  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.17em;text-transform:uppercase;
+    color:var(--accent);margin:0 0 14px;}
+  h1{font-size:clamp(26px,6vw,40px);line-height:1.15;letter-spacing:-.03em;font-weight:800;margin:0 0 14px;}
+  .deck{margin:0 0 36px;color:var(--ink-2);font-size:16px;}
+  ul{list-style:none;margin:0;padding:0;}
+  li{border:1px solid var(--rule);background:var(--surface);padding:15px 17px;margin:0 0 9px;}
+  a{display:block;color:var(--ink);text-decoration:none;font-weight:730;font-size:16px;line-height:1.45;}
+  a:hover{color:var(--accent);}
+  a b{font-family:var(--mono);font-size:13px;color:var(--accent);font-weight:700;margin-right:7px;}
+  .now{font-family:var(--mono);font-size:10px;letter-spacing:.1em;background:var(--accent);
+    color:var(--accent-ink);padding:2px 7px;margin-left:6px;vertical-align:2px;}
+  .m{display:block;font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-top:5px;}
+  .d{display:block;font-size:14px;color:var(--ink-2);margin-top:6px;line-height:1.55;}
+  .note{border-left:3px solid var(--accent);background:var(--surface);padding:13px 16px;margin:28px 0 0;
+    font-size:14px;color:var(--ink-2);line-height:1.6;}
+  .note b{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;
+    text-transform:uppercase;color:var(--ink-3);margin-bottom:6px;font-weight:400;}
+  footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);
+    font-family:var(--mono);font-size:11px;color:var(--ink-3);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker">코리안리재보험 · Claude Cowork 교육</p>
+  <h1>실습가이드 버전 기록</h1>
+  <p class="deck">고칠 때마다 그 시점의 파일을 그대로 남겨둡니다.
+    링크를 이미 보내신 뒤에 내용이 바뀌어도 예전 버전을 그대로 열어볼 수 있습니다.</p>
+
+  <ul>
+    <li>
+      <a href="실습가이드_v1_20260826.html"><b>v1</b> 실습 자료 최초 등록</a>
+      <span class="m">2026-08-26 · 유원영 · 375KB</span>
+      <span class="d">최초 버전</span>
+    </li>
+    <li>
+      <a href="실습가이드_v2_20260826.html"><b>v2</b> 8챕터 · 100점 채점표 개편</a>
+      <span class="m">2026-08-26 · 김지민 · 279KB</span>
+      <span class="d">챕터를 여덟 개로 나누고 채점표를 100점 배점으로 바꿈. 트랙별 내용 분기 도입</span>
+    </li>
+    <li>
+      <a href="실습가이드_v3_20260827.html"><b>v3</b> 인쇄 · PDF 내보내기 추가</a>
+      <span class="m">2026-08-27 · 유원영 · 280KB</span>
+      <span class="d">인쇄할 때 진행바와 도움말을 숨기고 챕터가 페이지 중간에서 잘리지 않게 함</span>
+    </li>
+    <li>
+      <a href="실습가이드_v4_20260827.html"><b>v4</b> PDF 챕터 누락 수정</a>
+      <span class="m">2026-08-27 · 유원영 · 280KB</span>
+      <span class="d">인쇄 직전에 트랙별 내용을 자동으로 펼치도록 수정</span>
+    </li>
+    <li>
+      <a href="실습가이드_v5_20260827.html"><b>v5</b> 접속 코드 제거</a>
+      <span class="m">2026-08-27 · 유원영 · 280KB</span>
+      <span class="d">게이트를 잠시 뺀 버전</span>
+    </li>
+    <li>
+      <a href="실습가이드_v6_20260828.html"><b>v6</b> 접속 코드 재적용</a>
+      <span class="m">2026-08-28 · 유원영 · 283KB</span>
+      <span class="d">접속 코드 게이트를 다시 넣음</span>
+    </li>
+    <li>
+      <a href="실습가이드_v7_20260830.html"><b>v7</b> 프로젝트 기반 흐름으로 개편</a>
+      <span class="m">2026-08-30 · 김지민 · 292KB</span>
+      <span class="d">각자 Cowork 프로젝트를 만들어 실습. 시작 챕터 5단계 재구성, 실습 데이터 안내 추가</span>
+    </li>
+    <li>
+      <a href="실습가이드_v8_20260830.html"><b>v8</b> 모바일 화면 대응 <span class="now">현재</span></a>
+      <span class="m">2026-08-30 · 김지민 · 295KB</span>
+      <span class="d">좁은 화면에서 상단 바와 채점표 레이아웃 정리. 280px까지 확인</span>
+    </li>
+  </ul>
+
+  <div class="note">
+    <b>접속 코드</b>
+    v6부터는 열 때 코드를 물어봅니다. 코드는 <b style="display:inline;font-size:13px;letter-spacing:0;text-transform:none;color:var(--ink)">cowork0902</b>입니다.
+    v1부터 v5까지는 코드 없이 열립니다.
+  </div>
+
+  <div class="note">
+    <b>항상 최신을 보려면</b>
+    <a href="../코리안리_Cowork_실습가이드.html" style="font-size:14px;font-weight:730;">코리안리_Cowork_실습가이드.html</a>
+    참가자에게 보내실 링크는 이쪽입니다. 버전 파일은 기록용입니다.
+  </div>
+
+  <footer>MegazoneCloud ISSU Data &amp; AI · 2026.09.02 코리안리 Claude Cowork 교육</footer>
+</div>
+</body>
+</html>
