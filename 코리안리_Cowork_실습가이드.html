@@ -1289,8 +1289,9 @@ body{margin:0}</style>
     <b class="t">보통 이렇게 넷으로 나뉩니다</b>
     <p><strong>조사</strong> 어떤 파일에 무엇이 몇 건 있는지 읽어서 목록으로 넘긴다<br>
       <strong>분석</strong> 그 목록을 받아 계산하고 집계해서 숫자로 넘긴다<br>
-      <strong>작성</strong> 그 숫자를 받아 산출물로 만든다<br>
-      <strong>검증</strong> 만들어진 것을 기준표로 채점한다</p>
+      <strong>작성</strong> 그 숫자를 받아 산출물로 만든다</p>
+    <p>실무에서는 여기에 <strong>검증</strong>이 하나 더 붙습니다.
+      오늘은 일부러 빼고 돌린 다음, 3 Eval에서 그 자리를 채웁니다.</p>
     <p>이 이름을 그대로 쓸 필요는 없습니다. <strong>Claude가 이 업무에 맞게 제안하게 두세요.</strong>
       넷보다 적어도, 많아도 됩니다.</p>
   </div>
@@ -1338,7 +1339,6 @@ body{margin:0}</style>
 - '넘기는 것'은 눈으로 확인할 수 있는 형태로 적어라.
   '정리해서 넘긴다'는 안 되고 '파일별 행 수를 표로 넘긴다'처럼.
 - '확인하는 법'은 넘긴 것이 나왔는지 판정할 수 있는 한 문장으로.
-- 마지막에 결과를 확인하는 역할이 필요한지도 네가 판단해서 넣어줘.
 
 표만 먼저 보여주고 멈춰. 아직 만들지 마.
 내가 보고 괜찮다고 하면 그때 1번 역할부터 시작하자.</pre></div>
@@ -1373,7 +1373,6 @@ body{margin:0}</style>
 - '넘기는 것'은 눈으로 확인할 수 있는 형태로 적어라.
   '정리해서 넘긴다'는 안 되고 '파일별 행 수를 표로 넘긴다'처럼.
 - '확인하는 법'은 넘긴 것이 나왔는지 판정할 수 있는 한 문장으로.
-- 마지막에 결과를 확인하는 역할이 필요한지도 네가 판단해서 넣어줘.
 
 표만 먼저 보여주고 멈춰. 아직 만들지 마.
 내가 보고 괜찮다고 하면 그때 1번 역할부터 시작하자.</pre></div>
@@ -1407,7 +1406,6 @@ body{margin:0}</style>
 - '넘기는 것'은 눈으로 확인할 수 있는 형태로 적어라.
   '정리해서 넘긴다'는 안 되고 '파일별 행 수를 표로 넘긴다'처럼.
 - '확인하는 법'은 넘긴 것이 나왔는지 판정할 수 있는 한 문장으로.
-- 마지막에 결과를 확인하는 역할이 필요한지도 네가 판단해서 넣어줘.
 
 표만 먼저 보여주고 멈춰. 아직 만들지 마.
 내가 보고 괜찮다고 하면 그때 1번 역할부터 시작하자.</pre></div>
@@ -1476,12 +1474,12 @@ body{margin:0}</style>
 <section class="step" data-step="2">
   <div class="head">
     <span class="num">2</span>
-    <h2>실행: 설계한 순서대로 한 단계씩 돌린다</h2>
+    <h2>실행: 설계대로 한 번에 돌리고 진행을 지켜본다</h2>
     <span class="meta"><span class="t">10분</span><span class="dots"></span></span>
   </div>
 
-  <p>1 Plan에서 짠 역할 순서대로 돌립니다. <strong>한 번에 다 시키지 않습니다.</strong>
-      한 역할이 끝나면 넘기기로 한 것이 실제로 나왔는지 보고, 그 다음 역할로 넘어갑니다.</p>
+  <p>1 Plan에서 짠 역할 순서대로 돌립니다. <strong>한 번에 끝까지 갑니다.</strong>
+      대신 어느 역할이 끝났고 무엇을 넘겼는지가 화면에 계속 보이게 시킵니다.</p>
 
   <p>이렇게 돌리면 결과가 틀렸을 때 <strong>어느 단계에서 틀렸는지가 바로 보입니다.</strong>
       한 번에 돌린 결과물은 틀린 자리를 찾는 데만 한참 걸립니다.</p>
@@ -1528,7 +1526,7 @@ body{margin:0}</style>
   <p>1 Plan에서 설계가 끝난 그 대화에 이어서 붙여넣으세요. 새 대화를 열면 설계가 사라집니다.</p>
 
   <div class="snip">
-    <div class="snip-top"><span class="snip-lbl">단계별 진행 · 모든 트랙 공통</span><button class="copy" type="button">복사</button></div>
+    <div class="snip-top"><span class="snip-lbl">실행 · 모든 트랙 공통</span><button class="copy" type="button">복사</button></div>
     <div class="snip-body"><pre>방금 설계한 역할 순서대로 끝까지 진행해줘.
 중간에 나한테 묻지 말고 한 번에 다 해도 돼.
 
@@ -1537,7 +1535,6 @@ body{margin:0}</style>
   [x] 1 조사      끝. 넘긴 것: 파일 4개 목록
   [&gt;] 2 집계      진행 중
   [ ] 3 작성      대기
-  [ ] 4 검증      대기
 
 한 역할이 끝날 때마다 이 목록을 갱신해서 다시 보여주고,
 그 역할이 넘기기로 한 것이 무엇인지 한 줄로 적어줘.
@@ -1576,8 +1573,8 @@ body{margin:0}</style>
     <b class="t">여기까지가 실행입니다</b>
     <p>설계한 역할을 순서대로 다 돌렸고 결과물이 나왔습니다.
       그게 맞는지는 <strong>아직 아무도 모릅니다.</strong></p>
-    <p>다음 챕터에서 <strong>검증 역할</strong>을 붙입니다.
-      설계에 검증이 들어 있었다면 그 단계가, 없었다면 지금 새로 붙이는 것이 3 Eval입니다.</p>
+    <p>설계에 <strong>확인하는 역할이 없다는 것</strong>을 눈치채셨을 수도 있습니다.
+      프롬프트에서 그 단계를 빼라고 했기 때문입니다. 다음 챕터가 그 빠진 자리입니다.</p>
   </div>
 </section>
 </div>
@@ -1655,6 +1652,11 @@ E6 원본 : 원본 파일을 수정하거나 삭제했는가
       점수가 낮은 게 문제가 아니라, 점수를 매겨보기 전까지 <strong>몰랐다는 것</strong>이 문제입니다.</div>
   </div>
 
+  <label class="task"><input type="checkbox" data-k="e1"><span class="mark"></span>
+    <span class="txt">채점 결과를 받아서 점수를 적었다
+      <small>Cowork가 스스로 통과라고 한 항목도 <strong>근거를 보고</strong> 판단하세요.
+      근거 없이 통과라고 하면 그건 실패로 적습니다.</small></span></label>
+
   <h3>왜 실패했는지 짚어달라고 합니다</h3>
   <p>점수만 보면 다음에 뭘 고쳐야 할지 모릅니다. 이어서 붙여넣으세요.</p>
 
@@ -1676,6 +1678,11 @@ E6 원본 : 원본 파일을 수정하거나 삭제했는가
     <label for="mf">받은 답에서 다음에 쓸 문장 (붙여넣기)</label>
     <textarea id="mf" rows="4" data-k="memoFail" placeholder="예: 계약 건수를 셀 때 배서를 더하지 않는다 / 모든 표에 출처 파일명과 원본 행 번호를 넣는다"></textarea>
   </div>
+
+  <label class="task"><input type="checkbox" data-k="e2"><span class="mark"></span>
+    <span class="txt">실패 원인과 다음에 쓸 문장을 받았다
+      <small>2)에서 <strong>내 요청의 어느 문장 때문인지</strong> 인용해 줍니다.
+      내가 복사한 프롬프트에 그 줄이 있는지 직접 확인해 보세요.</small></span></label>
 
   <div class="note">
     <b class="t">여기서 짚을 것</b>
