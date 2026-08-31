@@ -552,17 +552,29 @@
 
   /* ══════════ 화면 캡쳐 슬롯 ══════════ */
   .shot{
-    margin:22px 0 0;
-    display:inline-block;          /* 테두리가 이미지에 딱 맞게 */
-    max-width:min(840px, 100%);
+    margin:20px 0 0;
+    display:block;
+    width:max-content;             /* 테두리가 이미지 폭에 정확히 맞도록 */
+    max-width:100%;
     border:1px solid var(--line);
     background:var(--card);
     line-height:0;
   }
   .shot img{
-    display:block; height:auto;
-    max-height:290px; max-width:100%;
+    display:block; height:auto; width:auto;
+    max-height:clamp(200px, 31vh, 320px);
+    max-width:min(980px, 100%);
   }
+  /* 캡쳐가 들어간 장표는 주변 여백을 조여 세로 넘침을 막는다 */
+  .slide:has(.shot:not(.empty)) .snip{ margin-top:12px; }
+  .slide:has(.shot:not(.empty)) .snip pre{ padding:12px 16px; font-size:.79rem; line-height:1.62; }
+  .slide:has(.shot:not(.empty)) .snip-top{ padding:6px 14px; }
+  .slide:has(.shot:not(.empty)) h2{ margin-bottom:10px; }
+  .slide:has(.shot:not(.empty)) .lead{ margin-bottom:10px; }
+  .slide:has(.shot:not(.empty)) .footnote{ margin-top:12px; }
+  .slide:has(.shot:not(.empty)) .tree{ margin-top:12px; padding:16px 20px; line-height:1.75; }
+  .slide:has(.shot:not(.empty)) .eval-def{ margin-top:12px; }
+  .slide:has(.shot:not(.empty)) .shot{ margin-top:14px; }
   /* 캡쳐가 아직 없을 때 */
   .shot.empty{
     border:1px dashed #B9C4CE;
