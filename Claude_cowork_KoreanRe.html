@@ -44,7 +44,7 @@
     display:flex;
     flex-direction:column;
     justify-content:center;
-    padding:6vh 9vw;
+    padding:6vh 9vw 15vh;
     opacity:0;
     transform:translateY(24px);
     pointer-events:none;
@@ -278,8 +278,8 @@
   /* ---- chrome: nav / progress / notes ---- */
   .chrome{
     position:fixed; left:0; right:0; bottom:0;
-    display:flex; align-items:center; justify-content:space-between;
-    padding:16px 28px;
+    display:flex; align-items:flex-end; justify-content:space-between;
+    padding:14px 28px 18px;
     z-index:20;
     font-family:var(--mono);
     font-size:.78rem;
@@ -541,6 +541,169 @@
   }
   .eval-footnote b{ color:var(--accent-ink); }
 
+  code{
+    font-family:var(--mono);
+    font-size:.86em;
+    background:var(--bg);
+    border:1px solid var(--line);
+    padding:1px 5px;
+    color:var(--ink);
+  }
+
+  /* ══════════ 모듈 구조 ══════════ */
+  .chapters{ display:flex; gap:3px; align-items:center; flex-wrap:wrap; }
+  .chap{
+    font-family:var(--mono);
+    font-size:.66rem;
+    letter-spacing:.05em;
+    background:transparent;
+    border:1px solid var(--line);
+    color:var(--muted);
+    padding:4px 7px;
+    cursor:pointer;
+    line-height:1.2;
+  }
+  .chap:hover{ border-color:var(--accent); color:var(--accent-ink); }
+  .chap.on{
+    background:var(--ink);
+    border-color:var(--ink);
+    color:#fff;
+    padding:4px 10px;
+  }
+  .chap .cname{ display:none; }
+  .chap.on .cname{ display:inline; margin-left:6px; font-weight:500; }
+  .chrome-left{ display:flex; flex-direction:column; gap:8px; }
+
+  /* 모듈 표지 */
+  .divider-slide{ background:var(--bg-deep); color:#fff; }
+  .divider-slide .mod-num{
+    font-family:var(--mono);
+    font-size:.8rem;
+    letter-spacing:.18em;
+    color:#8FD9C4;
+    margin-bottom:20px;
+  }
+  .divider-slide h1{ color:#fff; }
+  .divider-slide .lead{ color:#B9C6D3; max-width:34ch; }
+  .divider-slide .mod-optional{
+    display:inline-block;
+    font-family:var(--mono);
+    font-size:.66rem;
+    letter-spacing:.1em;
+    border:1px solid #8FD9C4;
+    color:#8FD9C4;
+    padding:3px 9px;
+    margin-top:26px;
+  }
+
+  /* ══════════ 모듈 2 · 맥락 세팅 컴포넌트 ══════════ */
+  /* 폴더 트리 */
+  .tree{
+    font-family:var(--mono);
+    font-size:.95rem;
+    line-height:1.9;
+    background:var(--card);
+    border:1px solid var(--line);
+    padding:22px 26px;
+    margin-top:20px;
+    max-width:520px;
+  }
+  .tree .root{ color:var(--ink); font-weight:700; }
+  .tree .dir{ color:var(--accent-ink); font-weight:700; }
+  .tree .cmt{ color:var(--muted); font-size:.85rem; }
+
+  /* 계층 스택 (프로젝트 구성 / 지침 위계) */
+  .stack{ display:flex; flex-direction:column; gap:8px; margin-top:20px; max-width:660px; }
+  .layer{
+    display:flex; align-items:baseline; gap:16px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-left:4px solid var(--line);
+    padding:14px 18px;
+  }
+  .layer.hi{ border-left-color:var(--accent); }
+  .layer .lname{
+    font-family:var(--mono);
+    font-size:.86rem;
+    font-weight:700;
+    color:var(--ink);
+    min-width:132px;
+  }
+  .layer .ldesc{ font-size:.92rem; color:var(--body); flex:1; }
+  .layer .lscope{
+    font-family:var(--mono);
+    font-size:.7rem;
+    color:var(--muted);
+    white-space:nowrap;
+  }
+
+  /* 코드/지침 블록 */
+  .snip{
+    border:1px solid var(--line);
+    background:var(--card);
+    margin-top:18px;
+    max-width:720px;
+  }
+  .snip-top{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:8px 14px;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+  }
+  .snip-lbl{
+    font-family:var(--mono);
+    font-size:.68rem;
+    letter-spacing:.1em;
+    color:var(--muted);
+    text-transform:uppercase;
+  }
+  .snip pre{
+    margin:0;
+    padding:16px 18px;
+    font-family:var(--mono);
+    font-size:.84rem;
+    line-height:1.75;
+    color:var(--ink);
+    white-space:pre-wrap;
+    overflow-x:auto;
+  }
+  .snip pre b{ color:var(--accent-ink); font-weight:700; }
+
+  /* 3열 룰 카드 */
+  .rule3{ display:flex; gap:18px; margin-top:22px; }
+  .rule-card{
+    flex:1;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-top:3px solid var(--accent);
+    padding:20px 20px 22px;
+  }
+  .rule-card .rname{
+    font-family:var(--mono);
+    font-size:.78rem;
+    font-weight:700;
+    color:var(--accent-ink);
+    margin-bottom:10px;
+  }
+  .rule-card h3{ font-size:1.05rem; margin:0 0 8px; font-weight:800; color:var(--ink); }
+  .rule-card p{ font-size:.9rem; color:var(--body); line-height:1.6; margin:0; }
+
+  /* 각주 / 비공식 표기 */
+  .footnote{
+    margin-top:20px;
+    font-size:.82rem;
+    color:var(--muted);
+    border-left:2px solid var(--line);
+    padding-left:12px;
+    max-width:60ch;
+  }
+  .footnote b{ color:var(--body); }
+
+  @media (max-width:900px){
+    .rule3{ flex-direction:column; }
+    .stack{ max-width:100%; }
+  }
+
   /* ---- print / PDF export: one slide per page ---- */
   @media print{
     .gate, .chrome, .notes-panel{ display:none !important; }
@@ -578,8 +741,7 @@
 
 <div class="deck" id="deck">
 
-  <!-- 0b: Speakers -->
-  <section class="slide active" id="s-intro">
+  <section class="slide" data-mod="0" id="s-intro">
     <div class="eyebrow">오늘의 진행자</div>
     <h2>오늘 함께합니다</h2>
     <div class="card-row">
@@ -599,8 +761,7 @@
     </div>
   </section>
 
-  <!-- 0: Title -->
-  <section class="slide title-slide" id="s0">
+  <section class="slide title-slide" data-mod="0" id="s0">
     <div class="eyebrow">코리안리재보험 · 정보기술팀 · Claude Cowork 교육</div>
     <h1>일 시키는 방법이<br>달라졌습니다</h1>
     <p class="lead">Claude Chat · Code · Cowork — 그리고 오늘 실습을 시작하기 전에 세워야 할 기준 하나.</p>
@@ -611,22 +772,51 @@
     <div class="stamp-mark"><span>10 MIN</span><span>LECTURE</span></div>
   </section>
 
-  <!-- 1: Agenda -->
-  <section class="slide" id="s1">
-    <div class="eyebrow">오늘 10분 동안</div>
-    <h2>세 가지만 짚고 실습으로 넘어갑니다</h2>
-    <div class="agenda-list">
-      <div class="agenda-item"><span class="idx">01</span><span class="t">Claude, 세 개의 문</span><span class="d">Chat / Cowork / Code</span></div>
-      <div class="agenda-item"><span class="idx">02</span><span class="t">Cowork에게 일을 맡긴다는 것</span><span class="d">위임의 방식</span></div>
-      <div class="agenda-item"><span class="idx">03</span><span class="t">맡기기 전에 세워야 할 기준</span><span class="d">오늘 실습의 핵심</span></div>
+  <section class="slide" data-mod="0" id="m0-goals">
+    <div class="eyebrow">오늘의 목표</div>
+    <h2>이 시간이 끝나면, 세 가지를 할 수 있습니다</h2>
+    <div class="card-row">
+      <div class="card">
+        <span class="num">01</span>
+        <h3>구분한다</h3>
+        <p>Chat · Cowork · Code 중 어떤 문을 열지 고르고, 맡겨도 되는 일과 사람이 쥘 일을 나눕니다.</p>
+      </div>
+      <div class="card">
+        <span class="num">02</span>
+        <h3>맡긴다</h3>
+        <p>목표 · 자료 · 결과물 · 규칙을 담은 위임 브리프를 쓰고, 실행 전에 계획을 먼저 읽습니다.</p>
+      </div>
+      <div class="card hi">
+        <span class="num">03</span>
+        <h3>검증한다</h3>
+        <p>범위 · 수치 · 근거 · 예외 · 산출물 다섯 항목으로 결과를 확인합니다. 오늘의 핵심입니다.</p>
+      </div>
     </div>
-    <p class="lead" style="margin-top:24px;font-size:.9rem;color:var(--muted);">
-      스킬 제작·MCP 연결·최신 업데이트 등 나머지 내용은 교육 후 별도 자료로 전달드립니다.
-    </p>
   </section>
 
-  <!-- 2: Chat -->
-  <section class="slide" id="s2">
+  <section class="slide" data-mod="0" id="s1">
+    <div class="eyebrow">오늘의 지도</div>
+    <h2>여섯 걸음으로 갑니다</h2>
+    <div class="agenda-list">
+      <div class="agenda-item"><span class="idx">01</span><span class="t">패러다임의 변화</span><span class="d">Chat에서 실행하는 AI로 · 6분</span></div>
+      <div class="agenda-item"><span class="idx">02</span><span class="t">작업 환경과 맥락 세팅</span><span class="d">권한 · 지침 · 메모리 · 7분</span></div>
+      <div class="agenda-item"><span class="idx">03</span><span class="t">코워크를 넓히는 도구들</span><span class="d">커넥터 · 스킬 · 예약 · 7분</span></div>
+      <div class="agenda-item"><span class="idx">04</span><span class="t">실전 유즈케이스</span><span class="d">네 가지 업무 사례 · 4분</span></div>
+      <div class="agenda-item"><span class="idx">05</span><span class="t">안전하게 맡기는 법</span><span class="d">브리프 · 승인 · 검증 · 12분</span></div>
+      <div class="agenda-item"><span class="idx">06</span><span class="t">리스크 관리와 정착</span><span class="d">골든 룰 · 다음 단계 · 4분</span></div>
+    </div>
+  </section>
+
+  <section class="slide" data-mod="1" id="m1-shift">
+    <div class="eyebrow">01 · 패러다임의 변화</div>
+    <h2>질문하는 AI에서, 실행하는 AI로</h2>
+    <p class="lead">Chat이 물으면 답하는 <b>조언자</b>라면, Cowork는 내 파일을 직접 열고 고치고 만들어내는 <b>실행자</b>입니다. 같은 Claude인데, 손이 있느냐 없느냐가 다릅니다.</p>
+    <div class="eval-def">
+      Cowork는 개발자들이 쓰던 Claude Code와 같은 구조를 씁니다. 다만 터미널이 필요 없을 뿐입니다.
+    </div>
+  </section>
+
+  <section class="slide" data-mod="1" id="s2">
     <div class="eyebrow">01 · Claude, 세 개의 문 — A</div>
     <h2>Chat — 대화</h2>
     <div class="shot-layout">
@@ -640,8 +830,7 @@
     </div>
   </section>
 
-  <!-- 3: Cowork -->
-  <section class="slide" id="s3">
+  <section class="slide" data-mod="1" id="s3">
     <div class="eyebrow">01 · Claude, 세 개의 문 — B</div>
     <h2>Cowork — 위임</h2>
     <div class="shot-layout">
@@ -655,8 +844,7 @@
     </div>
   </section>
 
-  <!-- 4: Code -->
-  <section class="slide" id="s4">
+  <section class="slide" data-mod="1" id="s4">
     <div class="eyebrow">01 · Claude, 세 개의 문 — C</div>
     <h2>Code — 구축</h2>
     <div class="shot-layout">
@@ -670,8 +858,7 @@
     </div>
   </section>
 
-  <!-- 5: 3-way recap -->
-  <section class="slide" id="s5">
+  <section class="slide" data-mod="1" id="s5">
     <div class="eyebrow">01 · Claude, 세 개의 문</div>
     <h2>같은 모델, 다른 도구</h2>
     <div class="card-row">
@@ -693,15 +880,287 @@
     </div>
   </section>
 
-  <!-- 6: 오늘 우리가 쓰는 문 -->
-  <section class="slide" id="s6">
-    <div class="eyebrow">01 · Claude, 세 개의 문</div>
-    <h2>오늘 우리가 쓰는 문 = Cowork</h2>
-    <p class="lead">계약원장처럼 파일 여러 개가 얽힌 업무에 가장 잘 맞습니다. 지금부터는 Cowork 얘기만 하겠습니다.</p>
+  <section class="slide" data-mod="1" id="m1-compare">
+    <div class="eyebrow">01 · 패러다임의 변화</div>
+    <h2>Chat과 Cowork, 무엇이 다른가</h2>
+    <table class="approval">
+      <tr><th>기준</th><th>Chat</th><th>Cowork</th></tr>
+      <tr><td class="mode">역할</td><td>조언자 — 답을 준다</td><td><b>실무 동료 — 일을 끝낸다</b></td></tr>
+      <tr><td class="mode">입력</td><td>텍스트를 붙여넣는다</td><td><b>폴더와 파일에 직접 접근한다</b></td></tr>
+      <tr><td class="mode">진행</td><td>질문 하나에 답 하나</td><td><b>계획 → 실행 → 산출물</b></td></tr>
+      <tr><td class="mode">결과</td><td>대화창 안의 글</td><td><b>열어볼 수 있는 파일</b></td></tr>
+    </table>
   </section>
 
-  <!-- 7: Cowork concrete -->
-  <section class="slide" id="s7">
+  <section class="slide" data-mod="1" id="m1-engines">
+    <div class="eyebrow">01 · 패러다임의 변화</div>
+    <h2>Cowork를 움직이는 세 가지</h2>
+    <div class="card-row">
+      <div class="card">
+        <span class="num">A</span>
+        <h3>로컬 제어</h3>
+        <p>내 컴퓨터의 폴더를 직접 읽고, 고치고, 새 파일을 만듭니다. 모든 행동은 승인을 거칩니다.</p>
+      </div>
+      <div class="card">
+        <span class="num">B</span>
+        <h3>병렬 처리</h3>
+        <p>복잡한 일은 여러 갈래로 나눠 동시에 처리합니다. 몇 갈래가 될지는 작업에 따라 다릅니다.</p>
+      </div>
+      <div class="card">
+        <span class="num">C</span>
+        <h3>백그라운드 실행</h3>
+        <p>클라우드에서 도는 작업은 노트북을 덮어도 계속됩니다. 단, 내 파일을 쓰는 작업은 예외입니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-mod="1" id="m1-plan">
+    <div class="eyebrow">01 · 패러다임의 변화</div>
+    <h2>쓰려면 무엇이 필요한가</h2>
+    <p class="lead">Cowork는 <b>유료 플랜</b>에서 제공됩니다. Pro · Max · Team · Enterprise가 모두 해당되고, 무료 플랜에서는 쓸 수 없습니다.</p>
+    <div class="eval-def">
+      웹과 모바일에서도 쓸 수 있습니다. 다만 내 컴퓨터의 파일을 다루는 작업에는 데스크톱 앱이 필요합니다 — 자세한 조건은 모듈 03에서 짚습니다.
+    </div>
+    <p class="footnote"><b>확인 기준일 —</b> 2026년 8월. 요금제와 기능 범위는 바뀔 수 있으니 교육일에 공식 문서로 다시 확인합니다.</p>
+  </section>
+
+  <section class="slide divider-slide" data-mod="2" id="d2">
+    <div class="mod-num">MODULE 02</div>
+    <h1>맡기기 전에,<br>작업 공간부터</h1>
+    <p class="lead">권한을 어디까지 열지, 규칙을 어디에 적어둘지. 여기를 제대로 해두면 이후의 모든 작업이 안전해집니다.</p>
+  </section>
+
+  <section class="slide" data-mod="2" id="m2-scope">
+    <div class="eyebrow">02 · 작업 환경과 맥락 세팅</div>
+    <h2>권한부터 좁히고 시작합니다</h2>
+    <p class="lead">드라이브 전체나 내 문서 전체를 열어주지 않습니다. <b>Cowork 전용 작업 폴더 하나</b>를 만들어 거기만 연결합니다.</p>
+    <div class="eval-def">
+      범위를 좁히면 사고의 크기도 같이 좁아집니다. 실수로 건드릴 수 있는 파일이 애초에 그 폴더 안에만 있기 때문입니다.
+    </div>
+    <div class="tree">
+      <div class="root">📁 코리안리_Cowork_작업/</div>
+      <div>├── <span class="dir">01_계약원장/</span> <span class="cmt">— 이번 달 원본</span></div>
+      <div>├── <span class="dir">02_참고자료/</span> <span class="cmt">— 기준·양식</span></div>
+      <div>└── <span class="dir">03_결과물/</span> <span class="cmt">— 만들어진 파일</span></div>
+    </div>
+    <p class="footnote"><b>폴더 이름은 자유입니다.</b> 정해진 규칙이 있는 것은 아니고, 원본과 결과물을 섞지 않는 것이 요점입니다.</p>
+  </section>
+
+  <section class="slide" data-mod="2" id="m2-project">
+    <div class="eyebrow">02 · 작업 환경과 맥락 세팅</div>
+    <h2>프로젝트 — 폴더에 규칙과 기억을 더한 것</h2>
+    <div class="stack">
+      <div class="layer"><span class="lname">폴더</span><span class="ldesc">작업할 로컬 폴더를 연결합니다</span></div>
+      <div class="layer hi"><span class="lname">지침</span><span class="ldesc">이 업무에서 지킬 규칙을 적어둡니다</span></div>
+      <div class="layer"><span class="lname">링크</span><span class="ldesc">참고할 문서나 페이지를 붙여둡니다</span></div>
+      <div class="layer"><span class="lname">메모리</span><span class="ldesc">작업 내역이 쌓여 다음 대화로 이어집니다</span></div>
+    </div>
+    <p class="footnote"><b>주의 —</b> Cowork 프로젝트는 <b>내 컴퓨터에 있습니다.</b> 웹의 claude.ai 프로젝트와는 다른 것이고, 다른 사람과 공유되지 않습니다.</p>
+  </section>
+
+  <section class="slide" data-mod="2" id="m2-hier">
+    <div class="eyebrow">02 · 작업 환경과 맥락 세팅</div>
+    <h2>맥락은 세 층으로 쌓입니다</h2>
+    <div class="stack">
+      <div class="layer hi"><span class="lname">전역 지침</span><span class="ldesc">모든 작업에 항상 적용되는 최상위 규칙</span><span class="lscope">전체</span></div>
+      <div class="layer"><span class="lname">프로젝트 지침</span><span class="ldesc">이 업무에서만 적용되는 규칙</span><span class="lscope">프로젝트</span></div>
+      <div class="layer"><span class="lname">폴더 지침</span><span class="ldesc">특정 폴더를 다룰 때만 적용되는 규칙</span><span class="lscope">폴더</span></div>
+    </div>
+    <div class="eval-def">
+      아래로 갈수록 좁고 구체적입니다. 위층은 우산처럼 아래를 덮습니다 — 전역에 “지우기 전에 물어봐”를 적어두면 모든 프로젝트에서 지켜집니다.
+    </div>
+  </section>
+
+  <section class="slide" data-mod="2" id="m2-global">
+    <div class="eyebrow">02 · 작업 환경과 맥락 세팅</div>
+    <h2>전역 지침 — 모든 작업에 걸리는 안전망</h2>
+    <p class="lead">설정 → Cowork → 전역 지침에서 씁니다. 여기 적은 것은 예약 작업을 포함한 <b>모든 세션</b>에 적용됩니다.</p>
+    <div class="snip">
+      <div class="snip-top"><span class="snip-lbl">전역 지침 · 작성 예시</span></div>
+      <pre><b>파일을 지우기 전에는 반드시 먼저 물어볼 것.</b>
+원본 파일은 덮어쓰지 말고 사본을 만들어 작업할 것.
+숫자를 제시할 때는 어느 파일 어느 행에서 나왔는지 함께 적을 것.
+계산할 수 없는 행은 조용히 빼지 말고 따로 목록으로 남길 것.</pre>
+    </div>
+    <p class="footnote">전역 지침 편집은 <b>데스크톱 앱에서만</b> 가능합니다.</p>
+  </section>
+
+  <section class="slide" data-mod="2" id="m2-projinst">
+    <div class="eyebrow">02 · 작업 환경과 맥락 세팅</div>
+    <h2>프로젝트 지침 — 업무마다 다른 규칙</h2>
+    <p class="lead">같은 사람이라도 계약원장을 볼 때와 보고서를 쓸 때 지켜야 할 것이 다릅니다. 업무별 규칙은 프로젝트에 적어둡니다.</p>
+    <div class="snip">
+      <div class="snip-top"><span class="snip-lbl">계약원장 통합 프로젝트 · 지침 예시</span></div>
+      <pre>부서마다 열 이름이 다르므로 표준 열로 먼저 맞출 것.
+금액 단위는 원으로 통일하고, 단위를 바꾼 열은 표시할 것.
+<b>합계가 원본과 맞는지 확인한 뒤에만 결과를 저장할 것.</b></pre>
+    </div>
+  </section>
+
+  <section class="slide" data-mod="2" id="m2-memory">
+    <div class="eyebrow">02 · 작업 환경과 맥락 세팅</div>
+    <h2>메모리 — 매번 다시 설명하지 않아도 됩니다</h2>
+    <p class="lead">프로젝트 안에서 한 작업은 기록으로 남습니다. 다음 달에 같은 프로젝트를 열면 <b>지난번에 무엇을 어떻게 했는지</b>를 이어서 씁니다.</p>
+    <div class="eval-def">
+      그래서 프로젝트를 나누는 기준은 “파일이 어디 있느냐”가 아니라 <b>“어떤 맥락을 이어가고 싶으냐”</b>입니다.
+    </div>
+  </section>
+
+  <section class="slide" data-mod="2" id="m2-prompt3">
+    <div class="eyebrow">02 · 작업 환경과 맥락 세팅</div>
+    <h2>맡기기 전, 세 가지를 정리합니다</h2>
+    <div class="rule3">
+      <div class="rule-card">
+        <div class="rname">01 · CLEAR OUTCOME</div>
+        <h3>결과물을 못박기</h3>
+        <p>“요약해줘”가 아니라 “2페이지 실행 메모로 써줘”. 무엇이 나와야 끝인지를 먼저 정합니다.</p>
+      </div>
+      <div class="rule-card">
+        <div class="rname">02 · CLEAN CONTEXT</div>
+        <h3>입력을 정돈하기</h3>
+        <p>관련 없는 파일은 빼고 파일명을 알아볼 수 있게 정리합니다. 지저분한 입력은 지저분한 결과를 만듭니다.</p>
+      </div>
+      <div class="rule-card">
+        <div class="rname">03 · DEFINED FORMAT</div>
+        <h3>형식을 지정하기</h3>
+        <p>표의 열 구성, 단위, 차트 포함 여부까지 적습니다. 형식을 안 주면 매번 다른 모양이 나옵니다.</p>
+      </div>
+    </div>
+    <p class="footnote"><b>참고 —</b> 내 역할과 선호를 별도 파일로 적어 폴더에 두는 방식도 널리 쓰입니다. 다만 이는 공식 규약이 아니라 사용자들의 관행이고, Cowork가 자동으로 읽는 것은 위의 지침 체계입니다.</p>
+  </section>
+
+  <section class="slide" data-mod="3" id="m3-overview">
+    <div class="eyebrow">03 · 코워크를 넓히는 도구들</div>
+    <h2>네 방향으로 넓어집니다</h2>
+    <div class="card-row">
+      <div class="card"><span class="num">A</span><h3>커넥터</h3><p>Drive · Gmail · Slack 같은 업무 도구에 연결합니다.</p></div>
+      <div class="card"><span class="num">B</span><h3>스킬</h3><p>반복하는 절차를 저장해 명령어 하나로 부릅니다.</p></div>
+      <div class="card"><span class="num">C</span><h3>플러그인</h3><p>스킬과 커넥터를 묶은 꾸러미를 한 번에 설치합니다.</p></div>
+      <div class="card"><span class="num">D</span><h3>예약</h3><p>정해진 시각에 알아서 돌게 만듭니다.</p></div>
+    </div>
+  </section>
+
+  <section class="slide" data-mod="3" id="m3-connectors">
+    <div class="eyebrow">03 · 코워크를 넓히는 도구들</div>
+    <h2>커넥터 — 업무 도구와 연결하기</h2>
+    <p class="lead">코딩 없이 설정만으로 기존 업무 도구를 붙입니다. <b>300개 이상</b>의 커넥터가 제공됩니다.</p>
+    <table class="approval">
+      <tr><th>연결</th><th>이런 일을 시킬 수 있습니다</th></tr>
+      <tr><td class="mode">Drive</td><td>폴더의 문서를 훑어 필요한 값을 뽑아냅니다</td></tr>
+      <tr><td class="mode">Gmail</td><td>메일을 분류하고 답장 초안을 만들어 둡니다</td></tr>
+      <tr><td class="mode">Slack · Notion</td><td>채널의 논의를 모으고 문서를 갱신합니다</td></tr>
+      <tr><td class="mode">Calendar</td><td>일정을 브리핑하고 겹치는 회의를 찾아냅니다</td></tr>
+    </table>
+    <p class="footnote"><b>확인 기준일 —</b> 2026년 6월 Anthropic 발표 기준. 커넥터 수는 계속 늘고 있습니다.</p>
+  </section>
+
+  <section class="slide" data-mod="3" id="m3-skills">
+    <div class="eyebrow">03 · 코워크를 넓히는 도구들</div>
+    <h2>스킬 — 매번 쓰던 긴 지시를 버튼 하나로</h2>
+    <p class="lead">잘 됐던 작업 절차를 <code>SKILL.md</code> 파일로 저장해두면, 다음부터는 슬래시 명령어로 부릅니다.</p>
+    <div class="flow">
+      <div class="step"><b>1 생성</b>/skill-creator</div>
+      <div class="arrow">→</div>
+      <div class="step"><b>2 저장</b>절차 · 예외 · 출력 경로</div>
+      <div class="arrow">→</div>
+      <div class="step"><b>3 호출</b>/스킬이름</div>
+    </div>
+    <p class="footnote"><b>등록 —</b> Cowork는 내 컴퓨터의 <code>~/.claude</code> 폴더를 읽지 않습니다. 스킬은 Customize에서 켜야 세션에 들어옵니다.</p>
+  </section>
+
+  <section class="slide" data-mod="3" id="m3-plugins">
+    <div class="eyebrow">03 · 코워크를 넓히는 도구들</div>
+    <h2>플러그인 — 한 번에 설치되는 꾸러미</h2>
+    <p class="lead">특정 직무에 필요한 것들을 묶어 둔 패키지입니다. 하나를 설치하면 여러 가지가 한꺼번에 들어옵니다.</p>
+    <div class="card-row">
+      <div class="card"><span class="num">포함</span><h3>스킬 · 커넥터</h3><p>작업 절차와 외부 도구 연결이 함께 들어옵니다.</p></div>
+      <div class="card"><span class="num">포함</span><h3>서브에이전트 · 훅</h3><p>일을 나눠 맡는 보조 에이전트와 자동 실행 규칙입니다.</p></div>
+      <div class="card"><span class="num">포함</span><h3>슬래시 명령</h3><p>바로 부를 수 있는 명령어가 함께 등록됩니다.</p></div>
+    </div>
+    <p class="footnote">서브에이전트와 훅은 <b>Cowork에서만</b> 동작합니다. 일반 대화 화면에서는 비활성으로 표시됩니다.</p>
+  </section>
+
+  <section class="slide" data-mod="3" id="s9">
+    <div class="eyebrow">02 · Cowork에게 맡긴다는 것</div>
+    <h2>반복되는 업무는, 예약해둘 수 있습니다</h2>
+    <div class="shot-layout">
+      <div class="shot-text">
+        <p class="lead">예: 매주 월요일 아침, 지난주 계약 변동사항을 요약해두는 식입니다. STEP3에서 직접 만들어봅니다.</p>
+      </div>
+      <div class="shot-frame">
+        <svg viewBox="0 0 120 120" width="140" height="140" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="48" fill="none" stroke="var(--accent)" stroke-width="3"/>
+          <g stroke="var(--line)" stroke-width="2">
+            <line x1="60" y1="16" x2="60" y2="24"/>
+            <line x1="60" y1="96" x2="60" y2="104"/>
+            <line x1="16" y1="60" x2="24" y2="60"/>
+            <line x1="96" y1="60" x2="104" y2="60"/>
+          </g>
+          <line x1="60" y1="60" x2="60" y2="30" stroke="var(--ink)" stroke-width="3.5" stroke-linecap="round"/>
+          <line x1="60" y1="60" x2="84" y2="60" stroke="var(--ink)" stroke-width="3.5" stroke-linecap="round"/>
+          <circle cx="60" cy="60" r="4.5" fill="var(--warm)"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-mod="3" id="m3-artifacts">
+    <div class="eyebrow">03 · 코워크를 넓히는 도구들</div>
+    <h2>라이브 아티팩트 — 결과를 눈으로 보기</h2>
+    <p class="lead">표와 숫자를 넘어, 클릭해서 살펴볼 수 있는 <b>대시보드</b>로 결과를 받습니다. 예약 작업과 붙이면 데이터가 갱신될 때 화면도 같이 갱신됩니다.</p>
+    <div class="eval-def">
+      “보고서를 만들어줘”가 아니라 “이 판단에 필요한 화면을 만들어줘”가 가능해지는 지점입니다.
+    </div>
+    <p class="footnote"><b>제약 —</b> 데스크톱 앱에서만 보입니다. 팀원과 공유하는 기능은 Team · Enterprise 플랜에서만 제공됩니다.</p>
+  </section>
+
+  <section class="slide" data-mod="3" id="m3-env">
+    <div class="eyebrow">03 · 코워크를 넓히는 도구들</div>
+    <h2>어디까지 데스크톱이 필요한가</h2>
+    <table class="approval">
+      <tr><th>이런 작업은</th><th>필요 조건</th></tr>
+      <tr><td class="mode">웹 자료 조사<br>문서 작성</td><td>웹 · 모바일에서도 됩니다. 노트북을 덮어도 계속 돌아갑니다.</td></tr>
+      <tr class="hi"><td class="mode">내 컴퓨터의<br>파일 다루기</td><td><b>데스크톱 앱이 켜져 있어야 합니다.</b> 클라우드에서 도는 작업도 이때만 내 파일에 닿습니다.</td></tr>
+      <tr><td class="mode">브라우저 ·<br>화면 조작</td><td><b>데스크톱 앱이 필요합니다.</b></td></tr>
+    </table>
+    <p class="footnote">회사 계정(Enterprise)은 클라우드 실행이 <b>기본 꺼짐</b>이라, 관리자가 켜야 백그라운드 작업을 쓸 수 있습니다.</p>
+  </section>
+
+  <section class="slide" data-mod="4" id="m4-case1">
+    <div class="eyebrow">04 · 실전 유즈케이스 — 01</div>
+    <h2>흩어진 자료를 한 장으로</h2>
+    <p class="lead">회의록, 메신저 메모, 형식이 제각각인 엑셀이 섞인 폴더를 그대로 넘깁니다. 읽어야 할 것을 스스로 골라 <b>요약 · 진행 상황 · 다음 할 일 · 리스크</b>가 정리된 문서를 만들어 옵니다.</p>
+    <div class="eval-def">사람이 하던 일 — 파일을 하나씩 열어보고 머릿속에서 합치기</div>
+  </section>
+
+  <section class="slide" data-mod="4" id="m4-case2">
+    <div class="eyebrow">04 · 실전 유즈케이스 — 02</div>
+    <h2>지저분한 원장을 대시보드로</h2>
+    <p class="lead">날짜 형식이 제각각이고 빈칸이 섞인 원본을 정리해, 담보별 · 월별 지표와 차트가 든 파일을 만듭니다. 이상한 값은 <b>조용히 지우지 않고 따로 표시</b>합니다.</p>
+    <div class="eval-def">여러 갈래로 나눠 동시에 훑기 때문에, 파일이 많아져도 시간이 그만큼 비례해서 늘지는 않습니다</div>
+  </section>
+
+  <section class="slide" data-mod="4" id="m4-case3">
+    <div class="eyebrow">04 · 실전 유즈케이스 — 03</div>
+    <h2>출근하기 전에 이미 정리되어 있는 것</h2>
+    <p class="lead">매주 월요일 아침, 지난주 메일과 일정을 훑어 <b>주간 브리핑</b>을 만들어 둡니다. 급한 건에는 답장 초안까지 준비해둡니다.</p>
+    <div class="eval-def">발송은 하지 않습니다 — 초안까지가 기계의 몫이고, 보내는 것은 사람의 몫입니다</div>
+  </section>
+
+  <section class="slide" data-mod="4" id="m4-case4">
+    <div class="eyebrow">04 · 실전 유즈케이스 — 04</div>
+    <h2>사람이 매일 반복하던 확인 작업</h2>
+    <p class="lead">정해진 곳을 매일 훑어 <b>변화가 있을 때만</b> 알려주는 감시 작업, 그리고 팀 안에서만 쓰는 간단한 조회 도구를 코드 없이 만들어 둘 수 있습니다.</p>
+    <div class="eval-def">“매일 아침 9시에 확인하던 그 일”이 사라지는 자리</div>
+  </section>
+
+  <section class="slide divider-slide" data-mod="5" id="d5">
+    <div class="mod-num">MODULE 05</div>
+    <h1>그런데 이걸,<br>어떻게 안전하게 맡기죠?</h1>
+    <p class="lead">할 수 있는 일은 봤습니다. 이제 남은 문제는 하나입니다 — 맡긴 결과를 무엇으로 믿을 것인가.</p>
+  </section>
+
+  <section class="slide" data-mod="5" id="s7">
     <div class="eyebrow">02 · Cowork에게 맡긴다는 것</div>
     <h2>오늘 여러분이 맡길 일</h2>
     <p class="lead">형식이 제각각인 계약 원장 파일 3개를 넘기면, Cowork가 통합하고 검토용 보고서까지 만들어 옵니다. 이 과정이 잠시 후 STEP1에서 그대로 이어집니다.</p>
@@ -733,104 +1192,48 @@
     </div>
   </section>
 
-  <!-- 8: 로컬 파일 접근 원칙 -->
-  <section class="slide" id="s8">
-    <div class="eyebrow">02 · Cowork에게 맡긴다는 것</div>
-    <h2>로컬 파일, 어떻게 접근하나</h2>
-    <div class="eval-def" style="max-width:640px;">
-      로컬 파일 접근은 Claude Desktop 앱이 켜져 있는 동안에만 가능합니다.<br>
-      세션은 클라우드에서 실행되므로, 노트북을 덮어도 작업은 계속됩니다.
+  <section class="slide" data-mod="5" id="m5-split">
+    <div class="eyebrow">05 · 안전하게 맡기는 법</div>
+    <h2>맡겨도 되는 일과, 사람이 끝까지 쥘 일</h2>
+    <div class="card-row">
+      <div class="card hi">
+        <span class="num">맡긴다</span>
+        <h3>기준이 있는 일</h3>
+        <p>여러 파일을 읽고 비교 · 통합하기<br>정해진 기준으로 분류하고 검수하기<br>자료에서 보고서 초안 만들기<br>매달 반복되는 정리 업무</p>
+      </div>
+      <div class="card">
+        <span class="num">쥔다</span>
+        <h3>책임이 큰 일</h3>
+        <p>최종 법률 · 재무 판단<br>외부 발송 · 게시 · 결제 · 삭제<br>민감정보를 어디까지 열지 정하기<br>기준이 불명확한 의사결정</p>
+      </div>
     </div>
-    <svg class="hub-diagram" viewBox="0 0 680 360" xmlns="http://www.w3.org/2000/svg">
-      <!-- connecting lines -->
-      <line x1="340" y1="175" x2="340" y2="55"  stroke="var(--line)" stroke-width="1.5"/>
-      <line x1="340" y1="175" x2="454" y2="138" stroke="var(--line)" stroke-width="1.5"/>
-      <line x1="340" y1="175" x2="411" y2="272" stroke="var(--line)" stroke-width="1.5"/>
-      <line x1="340" y1="175" x2="269" y2="272" stroke="var(--line)" stroke-width="1.5"/>
-      <line x1="340" y1="175" x2="226" y2="138" stroke="var(--line)" stroke-width="1.5"/>
-
-      <!-- center: Cowork -->
-      <circle cx="340" cy="175" r="46" fill="var(--bg)" stroke="var(--accent)" stroke-width="2.2"/>
-      <text x="340" y="180" text-anchor="middle" font-family="var(--mono)" font-size="15" font-weight="700" fill="var(--accent-ink)">Cowork</text>
-
-      <!-- node: Claude Desktop (top) -->
-      <g transform="translate(340,55)">
-        <circle r="27" fill="var(--card)" stroke="var(--line)" stroke-width="1.5"/>
-        <rect x="-9" y="-8" width="18" height="12" rx="1.5" fill="none" stroke="var(--accent)" stroke-width="1.6"/>
-        <line x1="-3" y1="7" x2="3" y2="7" stroke="var(--accent)" stroke-width="1.6"/>
-        <line x1="-5" y1="9" x2="5" y2="9" stroke="var(--accent)" stroke-width="1.6"/>
-      </g>
-      <text x="340" y="102" text-anchor="middle" font-family="var(--mono)" font-size="12.5" fill="var(--body)">Claude Desktop</text>
-
-      <!-- node: Gmail (upper right) -->
-      <g transform="translate(454,138)">
-        <circle r="27" fill="var(--card)" stroke="var(--line)" stroke-width="1.5"/>
-        <rect x="-9" y="-6" width="18" height="12" rx="1" fill="none" stroke="var(--accent)" stroke-width="1.6"/>
-        <path d="M-9,-6 L0,2 L9,-6" fill="none" stroke="var(--accent)" stroke-width="1.6"/>
-      </g>
-      <text x="454" y="185" text-anchor="middle" font-family="var(--mono)" font-size="12.5" fill="var(--body)">Gmail</text>
-
-      <!-- node: Slack (lower right) -->
-      <g transform="translate(411,272)">
-        <circle r="27" fill="var(--card)" stroke="var(--line)" stroke-width="1.5"/>
-        <rect x="-9" y="-7" width="18" height="11" rx="3" fill="none" stroke="var(--accent)" stroke-width="1.6"/>
-        <path d="M-4,4 L-6,9 L-1,4 Z" fill="var(--accent)" stroke="none"/>
-      </g>
-      <text x="411" y="319" text-anchor="middle" font-family="var(--mono)" font-size="12.5" fill="var(--body)">Slack</text>
-
-      <!-- node: Notion (lower left) -->
-      <g transform="translate(269,272)">
-        <circle r="27" fill="var(--card)" stroke="var(--line)" stroke-width="1.5"/>
-        <path d="M-6,-9 L2,-9 L6,-5 L6,9 L-6,9 Z" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linejoin="round"/>
-        <path d="M2,-9 L2,-5 L6,-5" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linejoin="round"/>
-        <line x1="-3" y1="1" x2="3" y2="1" stroke="var(--accent)" stroke-width="1.3"/>
-        <line x1="-3" y1="4.5" x2="3" y2="4.5" stroke="var(--accent)" stroke-width="1.3"/>
-      </g>
-      <text x="269" y="319" text-anchor="middle" font-family="var(--mono)" font-size="12.5" fill="var(--body)">Notion</text>
-
-      <!-- node: 로컬 폴더 (upper left) -->
-      <g transform="translate(226,138)">
-        <circle r="27" fill="var(--card)" stroke="var(--line)" stroke-width="1.5"/>
-        <path d="M-9,-6 L-3,-6 L-1,-4 L9,-4 L9,7 L-9,7 Z" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linejoin="round"/>
-      </g>
-      <text x="226" y="185" text-anchor="middle" font-family="var(--mono)" font-size="12.5" fill="var(--body)">로컬 폴더</text>
-    </svg>
+    <div class="eval-def">자율성을 넓히는 기준은 신뢰감이 아니라 <b>규칙과 검증 가능성</b>입니다.</div>
   </section>
 
-  <!-- 9: 예약 작업 -->
-  <section class="slide" id="s9">
-    <div class="eyebrow">02 · Cowork에게 맡긴다는 것</div>
-    <h2>반복되는 업무는, 예약해둘 수 있습니다</h2>
-    <div class="shot-layout">
-      <div class="shot-text">
-        <p class="lead">예: 매주 월요일 아침, 지난주 계약 변동사항을 요약해두는 식입니다. STEP3에서 직접 만들어봅니다.</p>
-      </div>
-      <div class="shot-frame">
-        <svg viewBox="0 0 120 120" width="140" height="140" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="60" cy="60" r="48" fill="none" stroke="var(--accent)" stroke-width="3"/>
-          <g stroke="var(--line)" stroke-width="2">
-            <line x1="60" y1="16" x2="60" y2="24"/>
-            <line x1="60" y1="96" x2="60" y2="104"/>
-            <line x1="16" y1="60" x2="24" y2="60"/>
-            <line x1="96" y1="60" x2="104" y2="60"/>
-          </g>
-          <line x1="60" y1="60" x2="60" y2="30" stroke="var(--ink)" stroke-width="3.5" stroke-linecap="round"/>
-          <line x1="60" y1="60" x2="84" y2="60" stroke="var(--ink)" stroke-width="3.5" stroke-linecap="round"/>
-          <circle cx="60" cy="60" r="4.5" fill="var(--warm)"/>
-        </svg>
-      </div>
+  <section class="slide" data-mod="5" id="m5-loop">
+    <div class="eyebrow">05 · 안전하게 맡기는 법</div>
+    <h2>어디서 멈춰 확인할지를 먼저 정합니다</h2>
+    <div class="flow">
+      <div class="step"><b>PLAN</b>읽을 파일 · 순서 · 산출물</div>
+      <div class="arrow">→</div>
+      <div class="step"><b>APPROVE</b>범위와 위험한 행동</div>
+      <div class="arrow">→</div>
+      <div class="step"><b>EXECUTE</b>진행 보며 방향 수정</div>
+      <div class="arrow">→</div>
+      <div class="step"><b>VERIFY</b>수치 · 근거 · 예외</div>
+    </div>
+    <div class="eval-def">
+      실행 중 던질 질문 — “지금까지 몇 개 읽었어?” · “그 값은 어느 열에서 나왔어?” · “계산 못 한 행은 어떻게 했어?”
     </div>
   </section>
 
-  <!-- 10: 승인모드 인트로 -->
-  <section class="slide" id="s10">
+  <section class="slide" data-mod="5" id="s10">
     <div class="eyebrow">02 · Cowork에게 맡긴다는 것</div>
     <h2>얼마나 지켜볼 것인가</h2>
     <p class="lead">Cowork가 스스로 판단하게 둘 범위도 정할 수 있습니다. 세 가지 모드가 있습니다.</p>
   </section>
 
-  <!-- 11: Approval modes table -->
-  <section class="slide" id="s11">
+  <section class="slide" data-mod="5" id="s11">
     <div class="eyebrow">02 · Cowork에게 맡긴다는 것</div>
     <h2>승인 모드 세 가지</h2>
     <table class="approval">
@@ -855,15 +1258,13 @@
     </svg>
   </section>
 
-  <!-- 12: 왜 Manual -->
-  <section class="slide" id="s12">
+  <section class="slide" data-mod="5" id="s12">
     <div class="eyebrow">02 · Cowork에게 맡긴다는 것</div>
     <h2>오늘은 왜 Manual인가</h2>
     <p class="lead" style="max-width:600px;">오늘 배우는 건 결과를 확인하는 습관입니다. 그래서 매 단계를 직접 보고 승인하는 Manual로 진행합니다.</p>
   </section>
 
-  <!-- 13: 안전장치 -->
-  <section class="slide" id="s13">
+  <section class="slide" data-mod="5" id="s13">
     <div class="eyebrow">02 · Cowork에게 맡긴다는 것</div>
     <h2>안전장치 하나</h2>
     <div class="eval-def" style="max-width:620px;">
@@ -872,22 +1273,19 @@
     </div>
   </section>
 
-  <!-- 14: transition question -->
-  <section class="slide" id="s14">
+  <section class="slide" data-mod="5" id="s14">
     <div class="eyebrow">03 · 맡기기 전에</div>
     <h2>그런데, 이 숫자를 믿을 수 있을까요?</h2>
     <p class="lead">방금 나온 보고서, 합계는 맞을까요? 빠진 계약은 없을까요? 결과가 그럴듯해 보이는 것과, 실제로 맞는 것은 다른 문제입니다.</p>
   </section>
 
-  <!-- 15: 왜 틀릴 수 있는가 -->
-  <section class="slide" id="s15">
+  <section class="slide" data-mod="5" id="s15">
     <div class="eyebrow">03 · 맡기기 전에</div>
     <h2>표는 깨끗한데, 왜 틀릴 수 있을까요</h2>
     <p class="lead" style="max-width:620px;">계산 방식이 잘못됐거나, 원본에 없던 값이 슬쩍 채워졌을 수 있습니다. 그럴듯함과 정확함은 다릅니다.</p>
   </section>
 
-  <!-- 16: Eval / stamp -->
-  <section class="slide stamp-slide" id="s16">
+  <section class="slide stamp-slide" data-mod="5" id="s16">
     <div class="eyebrow">03 · 맡기기 전에</div>
     <div class="eval-body">
       <div class="eval-left">
@@ -907,8 +1305,7 @@
     </div>
   </section>
 
-  <!-- 17: 4블록 소개 -->
-  <section class="slide" id="s17">
+  <section class="slide" data-mod="5" id="s17">
     <div class="eyebrow">03 · 맡기기 전에</div>
     <h2>오늘의 기준, 네 줄이면 됩니다</h2>
     <div class="agenda-list">
@@ -919,8 +1316,7 @@
     </div>
   </section>
 
-  <!-- 18: 4블록 예시 -->
-  <section class="slide" id="s18">
+  <section class="slide" data-mod="5" id="s18">
     <div class="eyebrow">03 · 맡기기 전에</div>
     <h2>예를 들면 이렇습니다</h2>
     <div class="eval-def" style="max-width:660px;">
@@ -931,8 +1327,73 @@
     </div>
   </section>
 
-  <!-- 19: closing -->
-  <section class="slide dark-slide" id="s19">
+  <section class="slide" data-mod="5" id="m5-verify">
+    <div class="eyebrow">05 · 안전하게 맡기는 법</div>
+    <h2>“파일이 생겼다”는 완료가 아닙니다</h2>
+    <table class="approval">
+      <tr><th>항목</th><th>확인할 것</th></tr>
+      <tr><td class="mode">범위</td><td>요청한 파일을 전부 읽었는가</td></tr>
+      <tr><td class="mode">수치</td><td>행 수 · 합계 · 단위 · 공식이 맞는가</td></tr>
+      <tr><td class="mode">근거</td><td>각 판정이 원자료의 어느 행에서 나왔는가</td></tr>
+      <tr class="hi"><td class="mode">예외</td><td>누락 · 0 · 중복 · 변환 실패가 숨겨지지 않았는가</td></tr>
+      <tr><td class="mode">산출물</td><td>결과 파일을 직접 열어 형식까지 확인했는가</td></tr>
+    </table>
+    <p class="eval-footnote">AI의 설명보다 <b>원자료와 결과 파일의 대조</b>가 기준입니다. 이 다섯 항목은 잠시 후 실습의 채점표로 그대로 이어집니다.</p>
+  </section>
+
+  <section class="slide divider-slide" data-mod="6" id="d6">
+    <div class="mod-num">MODULE 06</div>
+    <h1>교육이 끝난 뒤에도<br>계속 쓰려면</h1>
+    <p class="lead">오늘 배운 것을 내일 업무에서 실제로 쓰게 만드는, 최소한의 규칙들입니다.</p>
+  </section>
+
+  <section class="slide" data-mod="6" id="m6-rules">
+    <div class="eyebrow">06 · 리스크 관리와 정착</div>
+    <h2>안전하게 쓰기 위한 네 가지</h2>
+    <div class="card-row">
+      <div class="card"><span class="num">01</span><h3>범위를 좁힌다</h3><p>드라이브 전체가 아니라 전용 작업 폴더만 연결합니다.</p></div>
+      <div class="card hi"><span class="num">02</span><h3>삭제는 반드시 확인</h3><p>전역 지침에 “지우기 전에 물어볼 것”을 적어둡니다.</p></div>
+      <div class="card"><span class="num">03</span><h3>지침을 백업한다</h3><p>공들여 다듬은 지침은 따로 복사해 보관합니다.</p></div>
+      <div class="card"><span class="num">04</span><h3>먼저 해보고 굳힌다</h3><p>완벽한 절차를 미리 짜지 말고, 두어 번 성공한 뒤 스킬로 저장합니다.</p></div>
+    </div>
+  </section>
+
+  <section class="slide" data-mod="6" id="m6-habit">
+    <div class="eyebrow">06 · 리스크 관리와 정착</div>
+    <h2>현업에 정착시키는 법</h2>
+    <div class="agenda-list">
+      <div class="agenda-item"><span class="idx">01</span><span class="t">승인 단계를 남겨둔다</span><span class="d">익숙해져도 중요한 변경은 확인</span></div>
+      <div class="agenda-item"><span class="idx">02</span><span class="t">지침과 결과물을 백업한다</span><span class="d">작업 폴더째 주기적으로</span></div>
+      <div class="agenda-item"><span class="idx">03</span><span class="t">매일 10분씩 써본다</span><span class="d">작은 정리 작업부터 시작</span></div>
+    </div>
+  </section>
+
+  <section class="slide" data-mod="6" id="m6-next">
+    <div class="eyebrow">06 · 리스크 관리와 정착</div>
+    <h2>익숙해지면 그다음이 있습니다</h2>
+    <div class="flow">
+      <div class="step"><b>Chat</b>묻고 답 받기</div>
+      <div class="arrow">→</div>
+      <div class="step"><b>Cowork</b>업무를 맡기기</div>
+      <div class="arrow">→</div>
+      <div class="step"><b>Code</b>도구를 직접 만들기</div>
+    </div>
+    <div class="eval-def">
+      Cowork에 익숙해진 비개발자가 사내에서 쓸 간단한 조회 도구를 직접 만드는 단계까지 이어집니다.
+    </div>
+  </section>
+
+  <section class="slide" data-mod="6" id="m6-three">
+    <div class="eyebrow">06 · 리스크 관리와 정착</div>
+    <h2>오늘 가져갈 세 문장</h2>
+    <div class="agenda-list">
+      <div class="agenda-item"><span class="idx">01</span><span class="t">Cowork는 답변기가 아니라 위임받은 실행자다</span><span class="d">목표를 주되 경계도 함께</span></div>
+      <div class="agenda-item"><span class="idx">02</span><span class="t">계획을 먼저 읽으면 결과의 절반을 미리 검증한다</span><span class="d">빠진 파일·단위·예외를 실행 전에</span></div>
+      <div class="agenda-item"><span class="idx">03</span><span class="t">완료는 생성이 아니라 검증까지다</span><span class="d">결과 파일을 원자료와 대조</span></div>
+    </div>
+  </section>
+
+  <section class="slide dark-slide" data-mod="7" id="s19">
     <div class="eyebrow">이제 실습입니다</div>
     <h1>오늘의 기준, 네 줄이면 됩니다</h1>
     <p class="lead">무엇을 · 무엇으로 · 지킬 것 · 계획 먼저 — 이 네 블록으로 Cowork에게 일을 맡기고, 결과를 검증하는 법을 STEP1부터 직접 해봅니다.</p>
@@ -947,8 +1408,7 @@
     </div>
   </section>
 
-  <!-- 20: practice materials link -->
-  <section class="slide dark-slide" id="s20">
+  <section class="slide dark-slide" data-mod="7" id="s20">
     <div class="eyebrow">실습 자료</div>
     <h1 class="nowrap">지금 이 주소로 접속하세요</h1>
     <div class="link-block big">
@@ -967,7 +1427,10 @@
 </div>
 
 <div class="chrome">
-  <div class="progress" id="progress"></div>
+  <div class="chrome-left">
+    <nav class="chapters" id="chapters" aria-label="모듈"></nav>
+    <div class="progress" id="progress"></div>
+  </div>
   <div class="navbtns">
     <button id="prevBtn">← 이전</button>
     <span class="counter" id="counter">1 / 8</span>
@@ -980,27 +1443,57 @@
 <script>
 const notes = [
 `오늘 진행은 메가존클라우드 Data&AI Unit의 유원영, 김지민이 함께합니다. 잘 부탁드립니다.`,
-`오늘은 10분 동안 스무 장을 빠르게 넘기면서, Chat·Code·Cowork가 어떻게 다른지, 그리고 오늘 실습에서 지킬 기준 하나를 짚겠습니다.`,
-`오늘 세 파트로 갑니다. Claude의 세 가지 문, Cowork에게 일을 맡기는 방식, 그리고 맡기기 전에 세워야 할 기준. 나머지 주제는 교육 후 자료로 따로 드립니다.`,
+`오늘은 Claude에게 질문을 잘하는 시간이 아닙니다. 일을 맡기는 방법을 연습합니다. 이미 Claude를 써보셨다면, 오늘의 차이는 프롬프트 문장 하나가 아니라 작업 방식 전체에 있습니다.`,
+`40분 뒤에 세 가지를 하실 수 있어야 합니다. 어떤 문을 열지 고르고, 브리프로 맡기고, 결과를 검증하는 것. 셋 중에 오늘 가장 강조할 것은 세 번째입니다.`,
+`여섯 걸음입니다. 앞의 넷은 Cowork가 무엇이고 무엇을 할 수 있는지, 다섯 번째가 오늘의 핵심인 안전한 위임, 여섯 번째가 교육 후에 어떻게 이어갈지입니다.`,
+`차이는 똑똑함이 아니라 손입니다. Chat은 답을 주고 실행은 사람이 합니다. Cowork는 파일을 직접 열고 고치고 만듭니다. 개발자들이 터미널에서 쓰던 구조를 그대로 가져오되, 터미널을 없앤 것이 Cowork입니다.`,
 `Chat은 여러분이 익숙한 대화형입니다. 물으면 답하고, 실행은 사람이 직접 합니다.`,
 `Cowork는 다릅니다. 목표만 설명하면 여러 파일과 앱을 가로질러 다단계 작업을 대신 수행합니다. 코드를 몰라도 됩니다.`,
 `Code는 터미널과 IDE 기반입니다. 소프트웨어를 만드는 개발자를 위한 문이에요. 오늘은 다루지 않습니다.`,
 `정리하면 이렇습니다. 세 개 다 같은 모델이 밑에 깔려 있고, 다른 건 손에 쥐어준 도구뿐입니다.`,
-`오늘 실습은 전부 Cowork로 진행합니다. 계약원장처럼 파일이 여러 개 얽힌 업무에 가장 잘 맞기 때문입니다.`,
+`네 줄로 비교해보겠습니다. 역할, 입력, 진행 방식, 결과물. 특히 마지막 줄을 봐주세요. Chat의 결과는 대화창 안의 글이고, Cowork의 결과는 열어볼 수 있는 파일입니다. 그래서 검증 방법도 달라집니다.`,
+`세 가지가 Cowork를 움직입니다. 로컬 제어, 병렬 처리, 백그라운드 실행. 두 번째에서 몇 갈래로 나뉘는지는 공식적으로 공개된 숫자가 없습니다. 작업에 따라 다르다고만 아시면 됩니다.`,
+`유료 플랜이면 다 됩니다. Pro, Max, Team, Enterprise. 무료만 안 됩니다. 웹과 모바일에서도 되는데, 여기에 조건이 하나 붙습니다. 그 조건은 모듈 3에서 따로 짚겠습니다.`,
+`이제 세팅입니다. 이 부분이 오늘 가장 실용적인 구간입니다. 여기를 제대로 해두면 나중에 사고가 안 납니다.`,
+`첫 번째 원칙입니다. 드라이브 전체를 열지 마세요. 전용 폴더 하나만 연결합니다. 범위를 좁히면 실수의 크기도 좁아집니다. 폴더 이름이나 구조에 정해진 규칙은 없습니다. 원본과 결과물을 섞지 않는 것만 지키면 됩니다.`,
+`폴더에 규칙과 기억을 더하면 프로젝트가 됩니다. 네 가지가 들어갑니다. 폴더, 지침, 링크, 메모리. 한 가지 주의하실 점은, Cowork 프로젝트는 내 컴퓨터에 있다는 겁니다. 웹의 claude.ai 프로젝트와 다른 것이고, 공유되지 않습니다.`,
+`맥락은 세 층입니다. 전역, 프로젝트, 폴더. 위로 갈수록 넓고 아래로 갈수록 좁습니다. 전역에 '지우기 전에 물어봐'를 한 번 적어두면 모든 프로젝트에서 지켜집니다. 우산을 씌우는 겁니다.`,
+`전역 지침은 설정에서 씁니다. 여기 적은 것은 예약 작업까지 포함해 모든 세션에 걸립니다. 화면의 예시 네 줄이 실무에서 가장 자주 쓰는 것들입니다. 특히 첫 줄과 마지막 줄을 권합니다. 참고로 전역 지침 편집은 데스크톱 앱에서만 됩니다.`,
+`업무마다 규칙이 다릅니다. 계약원장을 다룰 때와 보고서를 쓸 때 지킬 것이 다르죠. 그건 프로젝트 지침에 적습니다. 화면 예시의 마지막 줄이 중요합니다. 확인한 뒤에만 저장하라는 것.`,
+`프로젝트 안에서 한 작업은 기록으로 남습니다. 다음 달에 같은 프로젝트를 열면 이어서 씁니다. 그래서 프로젝트를 나누는 기준은 파일 위치가 아니라 맥락입니다.`,
+`맡기기 전에 세 가지를 정리합니다. 결과물을 못박고, 입력을 정돈하고, 형식을 지정하는 것. 하단 각주 하나만 짚고 넘어가겠습니다. 내 정보를 파일로 적어두는 방식이 인터넷에 많이 돌아다니는데, 그건 공식 규약이 아니라 관행입니다. Cowork가 자동으로 읽는 건 방금 본 지침 체계입니다.`,
+`네 방향으로 넓어집니다. 커넥터로 바깥 도구에 붙고, 스킬로 절차를 저장하고, 플러그인으로 묶음을 설치하고, 예약으로 시간을 맡깁니다.`,
+`코딩 없이 설정만으로 붙습니다. 300개가 넘습니다. 다만 이 숫자는 계속 늘고 있어서, 화면 아래 기준일을 같이 봐주세요.`,
+`잘 됐던 절차를 파일로 저장해두면 다음부터는 명령어 하나로 부릅니다. 만들 때 쓰는 명령이 슬래시 skill 하이픈 creator입니다. 하이픈인 점 주의하세요. 그리고 Cowork는 내 컴퓨터의 숨김 폴더를 읽지 않습니다. Customize에서 켜야 들어옵니다.`,
+`플러그인은 꾸러미입니다. 하나 설치하면 스킬, 커넥터, 서브에이전트, 훅, 명령어가 한꺼번에 들어옵니다. 이 중 서브에이전트와 훅은 Cowork에서만 동작합니다.`,
+`반복되는 업무는 예약해둘 수도 있습니다. 매주 월요일 아침, 지난주 계약 변동을 요약해두는 식입니다. 슬래시 schedule로 만들 수 있고, 기기가 꺼져 있어도 돕니다.`,
+`결과를 표가 아니라 화면으로 받을 수 있습니다. 예약과 붙이면 데이터가 갱신될 때 화면도 갱신됩니다. 다만 데스크톱에서만 보이고, 공유는 Team이나 Enterprise에서만 됩니다.`,
+`아까 미뤄둔 조건입니다. 웹 조사나 문서 작성은 웹, 모바일에서 되고 노트북을 덮어도 돌아갑니다. 그런데 내 컴퓨터의 파일을 다루는 순간 데스크톱 앱이 켜져 있어야 합니다. 오늘 실습이 정확히 그 경우입니다. 그래서 앱을 계속 켜두시라고 안내드린 겁니다.`,
+`첫 번째 사례입니다. 회의록, 메모, 엑셀이 섞인 폴더를 그대로 넘기면 알아서 읽고 정리해 옵니다. 사람이 파일을 하나씩 열어보던 그 일입니다.`,
+`두 번째는 오늘 실습과 가장 가깝습니다. 지저분한 원장을 정리해 지표와 차트를 만듭니다. 여기서 중요한 건 이상한 값을 조용히 지우지 않는다는 것. 이건 나중에 지침으로 강제해야 합니다.`,
+`세 번째는 시간을 맡기는 겁니다. 월요일 아침에 브리핑이 이미 만들어져 있습니다. 다만 발송은 하지 않습니다. 초안까지가 기계의 몫입니다.`,
+`네 번째는 매일 반복하던 확인 작업입니다. 변화가 있을 때만 알려주게 만들면, 매일 아침 9시에 확인하던 일이 없어집니다.`,
+`여기까지는 할 수 있는 일을 봤습니다. 이제 진짜 문제입니다. 맡긴 결과를 무엇으로 믿을 것인가.`,
 `형식이 제각각인 계약 원장 파일 3개를 넘기면, Cowork가 통합하고 보고서까지 만들어 옵니다. 이따 STEP1에서 그대로 해봅니다.`,
-`로컬 파일에 접근하려면 데스크톱 앱이 켜져 있어야 합니다. 다만 작업 자체는 클라우드에서 돌아서, 노트북을 덮어도 계속됩니다.`,
-`반복되는 업무는 예약해둘 수도 있습니다. 매주 월요일 아침, 지난주 계약 변동을 요약해두는 식입니다. STEP3에서 다뤄보겠습니다.`,
+`모든 일을 맡기는 게 아닙니다. 기준이 있는 일은 맡기고, 책임이 큰 일은 사람이 쥡니다. 오른쪽 목록을 봐주세요. 외부 발송, 결제, 삭제. 이건 끝까지 사람이 누릅니다. 판단 기준은 신뢰감이 아니라 검증 가능성입니다.`,
+`빠르게 맡기는 것보다 어디서 멈출지 설계하는 게 중요합니다. 네 단계 중에 사람이 개입하는 건 두 번째와 네 번째입니다. 아래 질문 세 개는 실행 중에 그대로 던지시면 됩니다.`,
 `Cowork가 스스로 얼마나 판단하게 둘지도 정할 수 있습니다. 세 가지 모드가 있습니다.`,
-`Manual은 매번 승인, Auto는 위험한 것만, Skip은 대부분 자동입니다. 오늘 실습은 Manual로 진행합니다.`,
-`오늘 배우는 건 결과를 확인하는 습관입니다. 그래서 매 단계를 직접 눈으로 보고 승인하는 Manual 모드로 갑니다.`,
-`모드와 상관없이, 파일을 완전히 지우는 행동만큼은 항상 별도 승인을 요구합니다. 실수로 원본이 사라질 걱정은 없습니다.`,
+`매번 승인, 위험한 것만, 대부분 자동. 공식 화면에는 더 긴 문구로 나옵니다. 오늘 실습은 첫 번째로 진행합니다.`,
+`오늘 배우는 건 결과를 확인하는 습관입니다. 그래서 매 단계를 직접 눈으로 보고 승인하는 모드로 갑니다.`,
+`모드와 상관없이, 파일을 완전히 지우는 행동만큼은 항상 별도 승인을 요구합니다. 어떤 모드에서도 예외가 없습니다. 실수로 원본이 사라질 걱정은 없습니다.`,
 `그런데 방금 나온 보고서, 그 숫자들 믿을 수 있나요? 합계가 맞는지, 빠진 계약은 없는지요.`,
 `표는 깔끔하고 숫자는 그럴듯해 보입니다. 하지만 계산 방식이 잘못됐거나, 원본에 없던 값이 슬쩍 들어갔을 수도 있습니다.`,
 `그래서 확인 기준은 결과가 나온 다음이 아니라, 맡기기 전에 미리 정해둡니다. 무엇을 확인해야 통과인지를 먼저 정하는 겁니다.`,
 `오늘 쓸 기준은 네 줄입니다. 무엇을, 무엇으로, 지킬 것, 계획 먼저. 이 네 블록이 오늘 실습 내내 반복됩니다.`,
 `예를 들면 이렇습니다. 무엇을 볼지, 어떤 결과물을 원하는지, 지켜야 할 규칙, 그리고 실행 전에 계획부터 확인받겠다는 것까지.`,
+`그리고 결과가 나오면 다섯 가지를 봅니다. 범위, 수치, 근거, 예외, 산출물. 특히 네 번째, 예외입니다. 계산 못 한 행이 생긴 건 실패가 아닙니다. 숨기는 게 실패입니다. 이 다섯 항목이 잠시 후 실습의 채점표로 그대로 이어집니다.`,
+`마지막입니다. 오늘 배운 걸 내일 실제로 쓰게 만드는 이야기입니다.`,
+`네 가지만 지키시면 됩니다. 범위를 좁히고, 삭제는 확인받게 하고, 지침을 백업하고, 완벽하게 짜려 하지 말고 일단 해보는 것. 특히 마지막이 중요합니다. 두어 번 성공한 다음에 굳히세요.`,
+`정착시키는 법입니다. 승인 단계를 남겨두고, 백업하고, 매일 10분씩. 큰 걸 하려 하지 마시고 작은 정리 작업부터 시작하시면 됩니다.`,
+`익숙해지면 그다음이 있습니다. Cowork를 잘 쓰던 분이 사내에서 쓸 간단한 도구를 직접 만드는 단계까지 갑니다. 실제로 그렇게 넘어가신 분들이 있습니다.`,
+`오늘의 세 문장만 기억하셔도 됩니다. 위임받은 실행자, 계획을 먼저, 완료는 검증까지.`,
 `이제 이 네 줄을 들고 STEP1부터 직접 해보겠습니다. 시작하겠습니다.`,
-`화면에 뜬 주소로 접속해주세요. 노트북에 직접 입력하시면 됩니다. 여기서부터는 실습 가이드 화면을 보면서 진행하겠습니다.`
+`화면에 뜬 주소로 접속해주세요. 노트북에 직접 입력하시면 됩니다. 여기서부터는 실습 가이드 화면을 보면서 진행하겠습니다.`,
 ];
 
 /* ---- embedded product screenshots (base64, self-contained) ---- */
@@ -1019,11 +1512,25 @@ const isStage = new URLSearchParams(location.search).get('stage') === '1';
 if (isStage) document.body.classList.add('stage-mode');
 const syncChannel = ('BroadcastChannel' in window) ? new BroadcastChannel('kr_cowork_deck_sync') : null;
 
+const MODULES = [
+  ['00','오프닝'], ['01','패러다임의 변화'], ['02','작업 환경과 맥락 세팅'],
+  ['03','넓히는 도구들'], ['04','실전 유즈케이스'], ['05','안전하게 맡기는 법'],
+  ['06','리스크 관리와 정착'], ['07','실습으로']
+];
+const slideMod = slides.map(s => parseInt(s.dataset.mod || '0', 10));
+// 각 모듈의 첫 슬라이드 인덱스
+const modStart = {};
+slideMod.forEach((m,i)=>{ if(modStart[m] === undefined) modStart[m] = i; });
+
 const progressEl = document.getElementById('progress');
-slides.forEach((_,i)=>{
-  const d = document.createElement('div');
-  d.className = 'dot' + (i===0?' on':'');
-  progressEl.appendChild(d);
+const chaptersEl = document.getElementById('chapters');
+MODULES.forEach((m,i)=>{
+  const b = document.createElement('button');
+  b.className = 'chap';
+  b.type = 'button';
+  b.innerHTML = m[0] + '<span class="cname">' + m[1] + '</span>';
+  b.addEventListener('click', ()=>{ if(modStart[i] !== undefined){ idx = modStart[i]; render(); syncOut(); } });
+  chaptersEl.appendChild(b);
 });
 
 const counterEl = document.getElementById('counter');
@@ -1032,16 +1539,33 @@ const notesPanel = document.getElementById('notesPanel');
 const notesBtn = document.getElementById('notesBtn');
 const presentBtn = document.getElementById('presentBtn');
 
+function syncOut(){
+  if (syncChannel && !isStage) syncChannel.postMessage({ type:'goto', idx });
+}
 function render(){
   slides.forEach((s,i)=> s.classList.toggle('active', i===idx));
-  Array.from(progressEl.children).forEach((d,i)=> d.classList.toggle('on', i===idx));
+
+  const cur = slideMod[idx];
+  // 챕터 바: 현재 모듈만 이름 노출
+  Array.from(chaptersEl.children).forEach((b,i)=> b.classList.toggle('on', i===cur));
+
+  // 진행 점: 현재 모듈 안에서만 표시
+  const inMod = [];
+  slideMod.forEach((m,i)=>{ if(m===cur) inMod.push(i); });
+  progressEl.innerHTML = '';
+  inMod.forEach(i=>{
+    const d = document.createElement('div');
+    d.className = 'dot' + (i===idx?' on':'');
+    progressEl.appendChild(d);
+  });
+
   counterEl.textContent = (idx+1) + ' / ' + slides.length;
   notesInner.innerHTML = '<span class="label">발표자 노트 · SLIDE ' + (idx+1) + '</span>' + notes[idx];
 }
 function go(n){
   idx = Math.max(0, Math.min(slides.length-1, idx+n));
   render();
-  if (syncChannel && !isStage) syncChannel.postMessage({ type:'goto', idx });
+  syncOut();
 }
 document.getElementById('nextBtn').addEventListener('click', ()=>go(1));
 document.getElementById('prevBtn').addEventListener('click', ()=>go(-1));
