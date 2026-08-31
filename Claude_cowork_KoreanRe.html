@@ -550,6 +550,43 @@
     color:var(--ink);
   }
 
+  /* ══════════ 화면 캡쳐 슬롯 ══════════ */
+  .shot{
+    margin:22px 0 0;
+    display:inline-block;          /* 테두리가 이미지에 딱 맞게 */
+    max-width:min(840px, 100%);
+    border:1px solid var(--line);
+    background:var(--card);
+    line-height:0;
+  }
+  .shot img{
+    display:block; height:auto;
+    max-height:290px; max-width:100%;
+  }
+  /* 캡쳐가 아직 없을 때 */
+  .shot.empty{
+    border:1px dashed #B9C4CE;
+    background:var(--bg);
+    min-height:92px; min-width:420px;
+    display:flex; align-items:center; justify-content:center;
+    padding:18px 22px;
+  }
+  .shot.empty img{ display:none; }
+  .shot.empty::after{
+    content:"캡쳐 자리 — " attr(data-cap);
+    font-family:var(--mono); font-size:.74rem; line-height:1.6;
+    letter-spacing:.02em; color:var(--muted); text-align:center;
+  }
+  .dark-slide .shot.empty,
+  .divider-slide .shot.empty{ background:rgba(255,255,255,.04); border-color:rgba(255,255,255,.22); }
+  .dark-slide .shot.empty::after,
+  .divider-slide .shot.empty::after{ color:#9FB0C0; }
+  /* 캡쳐가 들어오면 기존 도식을 대신하는 자리 (s9) */
+  .shot-frame .shot{ margin:0; max-width:none; }
+  .shot-alt{ display:none; }
+  .shot-swap.empty{ display:none; }          /* 캡쳐 없으면 슬롯을 숨기고 */
+  .shot-swap.empty + .shot-alt{ display:block; }  /* 원래 도식을 보여준다 */
+
   /* ══════════ 출처 목록 ══════════ */
   .srcs{
     columns:2; column-gap:46px;
@@ -762,6 +799,7 @@
     }
     .slide:last-child{ page-break-after:auto; break-after:auto; }
     .no-print{ display:none !important; }
+    .shot.empty{ display:none !important; }
   }
   @page{ size:1280px 720px; margin:0; }
 </style>
@@ -938,6 +976,9 @@
       <div>└── <span class="dir">03_결과물/</span> <span class="cmt">— 만들어진 파일</span></div>
     </div>
     <p class="footnote">폴더 구조에 정해진 규칙은 없습니다. 원본과 결과물만 섞지 마세요.</p>
+    <figure class="shot" data-cap="작업 폴더가 연결된 상태">
+      <img src="assets/02-folder-connected.png" alt="작업 폴더가 연결된 화면" onerror="this.parentNode.classList.add('empty')">
+    </figure>
   </section>
 
   <section class="slide" data-mod="2" id="m2-project">
@@ -950,6 +991,9 @@
       <div class="layer"><span class="lname">메모리</span><span class="ldesc">작업 내역이 쌓여 다음 대화로 이어집니다</span></div>
     </div>
     <p class="footnote">Cowork 프로젝트는 <b>내 컴퓨터에 있습니다.</b> 웹의 프로젝트와 다르고 공유되지 않습니다.<span class="ref">[5]</span></p>
+    <figure class="shot" data-cap="프로젝트 만들기 · 폴더 연결 화면">
+      <img src="assets/02-project-create.png" alt="프로젝트를 만들고 폴더를 연결하는 화면" onerror="this.parentNode.classList.add('empty')">
+    </figure>
   </section>
 
   <section class="slide" data-mod="2" id="m2-hier">
@@ -980,6 +1024,9 @@
 <b>합계가 원본과 맞는지 확인한 뒤에만 결과를 저장할 것.</b></pre>
     </div>
     <p class="footnote">전역 지침은 설정 → Cowork에서. <b>데스크톱 전용.</b><span class="ref">[6]</span></p>
+    <figure class="shot" data-cap="설정 → Cowork → 전역 지침 화면">
+      <img src="assets/02-global-instructions.png" alt="전역 지침을 입력하는 설정 화면" onerror="this.parentNode.classList.add('empty')">
+    </figure>
   </section>
 
   <section class="slide" data-mod="2" id="m2-prompt3">
@@ -1017,6 +1064,9 @@
       <tr><td class="mode">Calendar</td><td>일정을 브리핑하고 겹치는 회의를 찾아냅니다</td></tr>
     </table>
     <p class="footnote">2026년 6월 Anthropic 발표 기준.<span class="ref">[10]</span></p>
+    <figure class="shot" data-cap="커넥터 목록 또는 연결 완료 화면">
+      <img src="assets/03-connectors.png" alt="커넥터 목록 화면" onerror="this.parentNode.classList.add('empty')">
+    </figure>
   </section>
 
   <section class="slide" data-mod="3" id="m3-skills">
@@ -1034,6 +1084,9 @@
       <b>플러그인</b> — 스킬 · 커넥터 · 서브에이전트를 묶어둔 꾸러미
     </div>
     <p class="footnote">스킬은 <b>Customize</b>에서 켜야 세션에 들어옵니다.<span class="ref">[7]</span></p>
+    <figure class="shot" data-cap="스킬 목록 · Customize 화면">
+      <img src="assets/03-skills.png" alt="스킬 목록 화면" onerror="this.parentNode.classList.add('empty')">
+    </figure>
   </section>
 
   <section class="slide" data-mod="3" id="s9">
@@ -1044,7 +1097,10 @@
         <p class="lead">매주 월요일 아침, 지난주 계약 변동을 요약해두는 식입니다.</p>
       </div>
       <div class="shot-frame">
-        <svg viewBox="0 0 120 120" width="140" height="140" xmlns="http://www.w3.org/2000/svg">
+      <figure class="shot shot-swap" data-cap="예약 작업 설정 화면">
+        <img src="assets/03-schedule.png" alt="예약 작업 설정 화면" onerror="this.parentNode.classList.add('empty')">
+      </figure>
+      <div class="shot-alt"><svg viewBox="0 0 120 120" width="140" height="140" xmlns="http://www.w3.org/2000/svg">
           <circle cx="60" cy="60" r="48" fill="none" stroke="var(--accent)" stroke-width="3"/>
           <g stroke="var(--line)" stroke-width="2">
             <line x1="60" y1="16" x2="60" y2="24"/>
@@ -1055,8 +1111,8 @@
           <line x1="60" y1="60" x2="60" y2="30" stroke="var(--ink)" stroke-width="3.5" stroke-linecap="round"/>
           <line x1="60" y1="60" x2="84" y2="60" stroke="var(--ink)" stroke-width="3.5" stroke-linecap="round"/>
           <circle cx="60" cy="60" r="4.5" fill="var(--warm)"/>
-        </svg>
-      </div>
+        </svg></div>
+    </div>
     </div>
       <p class="footnote"><code>/schedule</code>로 만들 수 있고, 기기가 꺼져 있어도 실행됩니다.<span class="ref">[8]</span></p>
   </section>
@@ -1069,6 +1125,9 @@
       “보고서를 만들어줘”가 아니라 “이 판단에 필요한 화면을 만들어줘”가 가능해지는 지점입니다.
     </div>
     <p class="footnote">데스크톱 전용 · 공유는 Team · Enterprise만. 2026년 8월 기준.<span class="ref">[9]</span></p>
+    <figure class="shot" data-cap="실제 대시보드 결과물">
+      <img src="assets/03-artifact.png" alt="라이브 아티팩트로 만들어진 대시보드" onerror="this.parentNode.classList.add('empty')">
+    </figure>
   </section>
 
   <section class="slide" data-mod="3" id="m3-env">
@@ -1202,6 +1261,9 @@
       <text x="470" y="72" text-anchor="middle" font-family="var(--mono)" font-size="12.5" fill="var(--body)">Skip</text>
     </svg>
     <p class="footnote">공식 표기 — Manually / Automatically approve · Skip all approvals<span class="ref">[4]</span></p>
+    <figure class="shot" data-cap="승인 모드를 고르는 화면">
+      <img src="assets/05-approval-mode.png" alt="승인 모드 선택 화면" onerror="this.parentNode.classList.add('empty')">
+    </figure>
   </section>
 
   <section class="slide" data-mod="5" id="s12">
