@@ -139,8 +139,9 @@ body{margin:0}</style>
   .chips{
     max-width:var(--page-max);margin:0 auto;
     padding:0 var(--sp-24) 10px;
-    display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;
+    display:flex;flex-wrap:wrap;gap:6px;row-gap:7px;
   }
+  .chipbreak{flex:0 0 100%;height:0;margin:0;}
   .chips::-webkit-scrollbar{display:none;}
   .chip{
     font-family:var(--sans);font-size:13px;font-weight:700;
@@ -168,9 +169,7 @@ body{margin:0}</style>
     font-family:var(--mono);font-size:10px;letter-spacing:.14em;
     color:var(--ink-3);padding:0 8px 0 2px;white-space:nowrap;
   }
-  .parttag:not(:first-child){
-    border-left:1px solid var(--rule);margin-left:4px;padding-left:10px;
-  }
+  .parttag{padding-left:2px;}
   .bar .seggap{flex:none;width:10px;}
 
   /* ══════════ pane ══════════ */
@@ -2469,6 +2468,11 @@ E6 원본 (10점) : 원본 파일을 수정하거나 삭제했는가
   var lastPart = 0;
   CHAPTERS.forEach(function (ch) {
     if (ch.part !== lastPart) {
+      if (lastPart !== 0) {
+        var br = document.createElement("span");
+        br.className = "chipbreak";
+        chipsBox.appendChild(br);
+      }
       lastPart = ch.part;
       var tag = document.createElement("span");
       tag.className = "parttag";
