@@ -1,9 +1,8 @@
 # 코리안리재보험 · Claude Cowork 교육
 
-2026년 9월 2일 코리안리재보험 정보기술팀 대상 Claude Cowork 교육 자료입니다.
-1부 강의 30분, 2부 핸즈온 90분으로 진행합니다.
+메가존클라우드 ISV BU / Data & AI CoE에서 2026년 09월 02일에 코리안리재보험 정보기술팀 대상으로 진행하는 Claude Cowork 교육 자료입니다.
 
-메가존클라우드 ISSU Data & AI Unit
+1부는 30분의 Cowork 소개 강의(`Claude_cowork_KoreanRe.html`), 2부는 90분의 핸즈온 세션(`코리안리_Cowork_실습가이드.html`)으로 진행합니다.
 
 ---
 
