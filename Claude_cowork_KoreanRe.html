@@ -550,6 +550,36 @@
     color:var(--ink);
   }
 
+  /* ══════════ 출처 목록 ══════════ */
+  .srcs{
+    columns:2; column-gap:46px;
+    margin-top:20px; max-width:1000px;
+  }
+  .src-item{
+    break-inside:avoid;
+    display:flex; gap:11px;
+    padding:8px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .src-n{
+    font-family:var(--mono); font-size:.7rem; font-weight:700;
+    color:var(--accent); flex:none; width:30px; padding-top:3px;
+    white-space:nowrap;
+  }
+  .src-b{ min-width:0; }
+  .src-t{ font-size:.85rem; font-weight:600; color:var(--ink); line-height:1.45; }
+  .src-u{
+    font-family:var(--mono); font-size:.66rem; color:var(--muted);
+    word-break:break-all; line-height:1.5;
+  }
+  .src-u a{ color:var(--muted); text-decoration:none; }
+  .src-u a:hover{ color:var(--accent-ink); text-decoration:underline; }
+  .ref{
+    font-family:var(--mono); font-size:.72em;
+    color:var(--accent); vertical-align:super; margin-left:2px;
+  }
+  @media (max-width:900px){ .srcs{ columns:1; } }
+
   /* ══════════ 모듈 구조 ══════════ */
   .chapters{ display:flex; gap:3px; align-items:center; flex-wrap:wrap; }
   .chap{
@@ -919,7 +949,7 @@
       <div class="layer"><span class="lname">링크</span><span class="ldesc">참고할 문서나 페이지를 붙여둡니다</span></div>
       <div class="layer"><span class="lname">메모리</span><span class="ldesc">작업 내역이 쌓여 다음 대화로 이어집니다</span></div>
     </div>
-    <p class="footnote">Cowork 프로젝트는 <b>내 컴퓨터에 있습니다.</b> 웹의 프로젝트와 다르고 공유되지 않습니다.</p>
+    <p class="footnote">Cowork 프로젝트는 <b>내 컴퓨터에 있습니다.</b> 웹의 프로젝트와 다르고 공유되지 않습니다.<span class="ref">[5]</span></p>
   </section>
 
   <section class="slide" data-mod="2" id="m2-hier">
@@ -949,7 +979,7 @@
       <pre>부서마다 열 이름이 다르므로 표준 열로 먼저 맞출 것.
 <b>합계가 원본과 맞는지 확인한 뒤에만 결과를 저장할 것.</b></pre>
     </div>
-    <p class="footnote">전역 지침은 설정 → Cowork에서. <b>데스크톱 전용.</b></p>
+    <p class="footnote">전역 지침은 설정 → Cowork에서. <b>데스크톱 전용.</b><span class="ref">[6]</span></p>
   </section>
 
   <section class="slide" data-mod="2" id="m2-prompt3">
@@ -978,7 +1008,7 @@
   <section class="slide" data-mod="3" id="m3-connectors">
     <div class="eyebrow">03 · 코워크를 넓히는 도구들</div>
     <h2>커넥터 — 업무 도구와 연결하기</h2>
-    <p class="lead">코딩 없이 설정만으로 붙입니다. <b>300개 이상</b>.</p>
+    <p class="lead">코딩 없이 설정만으로 붙입니다. <b>300개 이상</b><span class="ref">[10]</span>.</p>
     <table class="approval">
       <tr><th>연결</th><th>이런 일을 시킬 수 있습니다</th></tr>
       <tr><td class="mode">Drive</td><td>폴더의 문서를 훑어 필요한 값을 뽑아냅니다</td></tr>
@@ -986,7 +1016,7 @@
       <tr><td class="mode">Slack · Notion</td><td>채널의 논의를 모으고 문서를 갱신합니다</td></tr>
       <tr><td class="mode">Calendar</td><td>일정을 브리핑하고 겹치는 회의를 찾아냅니다</td></tr>
     </table>
-    <p class="footnote">2026년 6월 Anthropic 발표 기준.</p>
+    <p class="footnote">2026년 6월 Anthropic 발표 기준.<span class="ref">[10]</span></p>
   </section>
 
   <section class="slide" data-mod="3" id="m3-skills">
@@ -1003,7 +1033,7 @@
     <div class="eval-def" style="max-width:700px;">
       <b>플러그인</b> — 스킬 · 커넥터 · 서브에이전트를 묶어둔 꾸러미
     </div>
-    <p class="footnote">스킬은 <b>Customize</b>에서 켜야 세션에 들어옵니다.</p>
+    <p class="footnote">스킬은 <b>Customize</b>에서 켜야 세션에 들어옵니다.<span class="ref">[7]</span></p>
   </section>
 
   <section class="slide" data-mod="3" id="s9">
@@ -1028,6 +1058,7 @@
         </svg>
       </div>
     </div>
+      <p class="footnote"><code>/schedule</code>로 만들 수 있고, 기기가 꺼져 있어도 실행됩니다.<span class="ref">[8]</span></p>
   </section>
 
   <section class="slide" data-mod="3" id="m3-artifacts">
@@ -1037,20 +1068,20 @@
     <div class="eval-def">
       “보고서를 만들어줘”가 아니라 “이 판단에 필요한 화면을 만들어줘”가 가능해지는 지점입니다.
     </div>
-    <p class="footnote">데스크톱 전용 · 공유는 Team · Enterprise만. 2026년 8월 기준.</p>
+    <p class="footnote">데스크톱 전용 · 공유는 Team · Enterprise만. 2026년 8월 기준.<span class="ref">[9]</span></p>
   </section>
 
   <section class="slide" data-mod="3" id="m3-env">
     <div class="eyebrow">03 · 코워크를 넓히는 도구들</div>
     <h2>쓰려면 무엇이 필요한가</h2>
-    <p class="lead"><b>유료 플랜</b>이면 됩니다 — Pro · Max · Team · Enterprise.</p>
+    <p class="lead"><b>유료 플랜</b>이면 됩니다 — Pro · Max · Team · Enterprise.<span class="ref">[2]</span></p>
     <table class="approval">
       <tr><th>이런 작업은</th><th>필요 조건</th></tr>
       <tr><td class="mode">웹 자료 조사<br>문서 작성</td><td>웹 · 모바일에서도 됩니다. 노트북을 덮어도 계속 돌아갑니다.</td></tr>
       <tr class="hi"><td class="mode">내 컴퓨터의<br>파일 다루기</td><td><b>데스크톱 앱이 켜져 있어야 합니다.</b> 오늘 실습이 여기 해당합니다.</td></tr>
       <tr><td class="mode">브라우저 ·<br>화면 조작</td><td><b>데스크톱 앱이 필요합니다.</b></td></tr>
     </table>
-    <p class="footnote">Enterprise는 클라우드 실행이 <b>기본 꺼짐</b>. 2026년 8월 기준.</p>
+    <p class="footnote">Enterprise는 클라우드 실행이 <b>기본 꺼짐</b>. 2026년 8월 기준.<span class="ref">[3]</span></p>
   </section>
 
   <section class="slide" data-mod="4" id="m4-case1">
@@ -1170,7 +1201,7 @@
       <circle cx="470" cy="45" r="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
       <text x="470" y="72" text-anchor="middle" font-family="var(--mono)" font-size="12.5" fill="var(--body)">Skip</text>
     </svg>
-    <p class="footnote">공식 표기 — Manually / Automatically approve · Skip all approvals</p>
+    <p class="footnote">공식 표기 — Manually / Automatically approve · Skip all approvals<span class="ref">[4]</span></p>
   </section>
 
   <section class="slide" data-mod="5" id="s12">
@@ -1179,7 +1210,7 @@
     <p class="lead">오늘 배우는 건 <b>결과를 확인하는 습관</b>입니다. 그래서 매 단계를 직접 봅니다.</p>
     <div class="eval-def" style="max-width:640px;">
       그리고 모드와 무관하게, 파일을 <span class="danger-text">완전히 삭제</span>하는 행동은<br>
-      <b>어떤 모드에서도 항상 별도 승인</b>을 요구합니다.
+      <b>어떤 모드에서도 항상 별도 승인</b>을 요구합니다.<span class="ref">[4]</span>
     </div>
   </section>
 
@@ -1307,6 +1338,24 @@
     </div>
   </section>
 
+  <section class="slide" data-mod="7" id="s-src">
+    <div class="eyebrow">참고 자료</div>
+    <h2>이 자료의 근거</h2>
+    <div class="srcs">
+      <div class="src-item"><span class="src-n">[1]</span><div class="src-b"><div class="src-t">Claude Cowork 시작하기</div><div class="src-u"><a href="https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork">support.claude.com/en/articles/13345190-get-started-with-claude-cowork</a></div></div></div>
+      <div class="src-item"><span class="src-n">[2]</span><div class="src-b"><div class="src-t">요금제 · 플랜별 제공 범위</div><div class="src-u"><a href="https://claude.com/pricing">claude.com/pricing</a></div></div></div>
+      <div class="src-item"><span class="src-n">[3]</span><div class="src-b"><div class="src-t">웹 · 데스크톱 · 모바일에서 쓰기</div><div class="src-u"><a href="https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile">support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile</a></div></div></div>
+      <div class="src-item"><span class="src-n">[4]</span><div class="src-b"><div class="src-t">안전하게 사용하기 — 승인 모드 · 삭제 승인</div><div class="src-u"><a href="https://support.claude.com/en/articles/13364135-use-claude-cowork-safely">support.claude.com/en/articles/13364135-use-claude-cowork-safely</a></div></div></div>
+      <div class="src-item"><span class="src-n">[5]</span><div class="src-b"><div class="src-t">프로젝트로 작업 정리하기</div><div class="src-u"><a href="https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork">support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork</a></div></div></div>
+      <div class="src-item"><span class="src-n">[6]</span><div class="src-b"><div class="src-t">Cowork에 맥락 주기 — 전역 지침</div><div class="src-u"><a href="https://academy.claude.com/courses/introduction-to-claude-cowork/giving-cowork-context">academy.claude.com/courses/introduction-to-claude-cowork/giving-cowork-context</a></div></div></div>
+      <div class="src-item"><span class="src-n">[7]</span><div class="src-b"><div class="src-t">스킬 사용하기 · 직접 만들기</div><div class="src-u"><a href="https://support.claude.com/en/articles/12512180-use-skills-in-claude">support.claude.com/en/articles/12512180-use-skills-in-claude</a></div></div></div>
+      <div class="src-item"><span class="src-n">[8]</span><div class="src-b"><div class="src-t">예약 작업 설정하기</div><div class="src-u"><a href="https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork">support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork</a></div></div></div>
+      <div class="src-item"><span class="src-n">[9]</span><div class="src-b"><div class="src-t">라이브 아티팩트 사용하기</div><div class="src-u"><a href="https://support.claude.com/en/articles/14729249-use-live-artifacts-in-claude-cowork">support.claude.com/en/articles/14729249-use-live-artifacts-in-claude-cowork</a></div></div></div>
+      <div class="src-item"><span class="src-n">[10]</span><div class="src-b"><div class="src-t">커넥터 디렉터리</div><div class="src-u"><a href="https://claude.com/connectors">claude.com/connectors</a></div></div></div>
+    </div>
+    <p class="footnote">본문의 <span class="ref">[n]</span> 표기가 위 번호에 대응합니다. 기능 · 요금제 · 권한은 <b>교육일의 공식 문서와 조직 관리자 설정</b>을 최종 기준으로 확인합니다. 본 자료의 확인 기준일은 <b>2026년 8월</b>입니다.</p>
+  </section>
+
 </div>
 
 <div class="notes-panel" id="notesPanel">
@@ -1367,6 +1416,7 @@ const notes = [
 `오늘의 세 문장만 기억하셔도 됩니다. 위임받은 실행자, 계획을 먼저, 완료는 검증까지.`,
 `이제 이 네 줄을 들고 1 Plan 챕터부터 직접 해보겠습니다. Part 1은 다 같이 돌고, Part 2에서 각자 사전과제로 가져오신 업무를 돌립니다. 시작하겠습니다.`,
 `화면에 뜬 주소로 접속해주세요. 노트북에 직접 입력하시면 됩니다. 접속하면 선택 화면이 뜨는데, 오른쪽 실습가이드를 누르시면 됩니다. 여기서부터는 실습 가이드 화면을 보면서 진행하겠습니다.`,
+`이 자료에 나온 기능 설명과 수치는 전부 Anthropic 공식 문서에서 확인한 것입니다. 본문에 대괄호로 번호를 달아뒀으니, 나중에 확인이 필요하시면 이 화면의 주소를 보시면 됩니다. 다만 코워크는 지금도 계속 바뀌는 제품이라, 요금제나 기능 범위는 그때그때 공식 문서를 한 번 더 확인하시는 게 좋습니다.`,
 ];
 
 /* ---- embedded product screenshots (base64, self-contained) ---- */
