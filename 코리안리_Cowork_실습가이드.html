@@ -2472,10 +2472,6 @@ E6 원본 (10점) : 원본 파일을 수정하거나 삭제했는가
   }
 
   var state = load();
-  // 트랙과 그 체크는 저장하지 않습니다. 열 때마다 다시 고릅니다
-  delete state.__track;
-  delete state.p1;
-  save(state);
 
   var boxes = [].slice.call(document.querySelectorAll(".task input[type=checkbox]"));
   var fields = [].slice.call(document.querySelectorAll("[data-k^=memo]"));
@@ -2743,7 +2739,8 @@ E6 원본 (10점) : 원본 파일을 수정하거나 삭제했는가
   trackBtns.forEach(function (b) {
     b.addEventListener("click", function () { setTrack(b.dataset.t); });
   });
-  setTrack("");
+  // 지난번에 고른 트랙을 그대로 되살립니다
+  setTrack(state.__track || "");
 
   // 체크와 메모는 남기되, 화면은 언제나 시작 챕터 맨 위에서 엽니다
   go("intro");
