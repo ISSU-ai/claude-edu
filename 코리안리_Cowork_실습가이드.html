@@ -56,6 +56,7 @@ body{margin:0}</style>
     --gap-block:30px;   /* 다른 묶음 */
     --gap-topic:50px;   /* 새 소주제 */
     --gap-inbox:10px;   /* 박스 안 문단 사이 */
+    --bar-gap:var(--sp-16); /* 상단 바 요소 사이 */
     --leading-box:1.58; /* 박스 안 줄글 */
 
     --radius:3px;
@@ -117,7 +118,7 @@ body{margin:0}</style>
   .bar .row{
     max-width:var(--page-max);margin:0 auto;
     padding:10px var(--sp-24);
-    display:flex;align-items:center;gap:var(--sp-16);
+    display:flex;align-items:center;gap:var(--bar-gap);
   }
   .bar .tag{
     font-family:var(--mono);font-size:var(--text-label);
@@ -137,9 +138,11 @@ body{margin:0}</style>
   .bar button.ghost,.bar a.ghost{
     font-family:var(--sans);font-size:12px;color:var(--ink-3);background:none;
     border:1px solid var(--rule);border-radius:var(--radius);
-    padding:4px 11px;cursor:pointer;white-space:nowrap;
+    padding:4px 8px;cursor:pointer;white-space:nowrap;
   }
   .bar a.ghost{text-decoration:none;line-height:1.7;flex:none;}
+  /* 버튼 셋은 한 묶음이라 서로 붙입니다 */
+  .bar .ghost + .ghost{margin-left:calc(6px - var(--bar-gap));}
   .bar button.ghost:hover,.bar a.ghost:hover{border-color:var(--accent);color:var(--accent);}
   .bar a.ghost:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
   .bar button.ghost.on{border-color:var(--accent);color:var(--accent);}
@@ -751,7 +754,7 @@ body{margin:0}</style>
     details .in{padding-left:17px;}
 
     /* ── 상단 바: 좁으면 진행바를 아랫줄로 ── */
-    .bar .row{flex-wrap:wrap;row-gap:8px;padding:10px 16px;gap:10px;}
+    .bar .row{flex-wrap:wrap;row-gap:8px;padding:10px 16px;--bar-gap:10px;gap:var(--bar-gap);}
     .bar .track{order:3;flex:1 1 100%;min-width:0;}
     .bar .cnt{margin-right:auto;}
     .chips{padding:0 16px 10px;}
