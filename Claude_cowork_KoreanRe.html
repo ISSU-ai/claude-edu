@@ -843,6 +843,11 @@
     .slide:last-child{ page-break-after:auto; break-after:auto; }
     .no-print{ display:none !important; }
     .shot.empty{ display:none !important; }
+    /* 겉장 스탬프: vw 단위가 인쇄에서 다르게 잡혀 화면 밖으로 나감 */
+    .title-slide .stamp-mark{
+      display:flex !important;
+      right:118px; top:50%;
+    }
   }
   @page{ size:1280px 720px; margin:0; }
 </style>
