@@ -471,14 +471,14 @@
     line-height:0;
   }
   .link-block.big{
-    margin-top:36px;
-    padding:40px 48px;
-    gap:44px;
-    max-width:none;
+    margin-top:32px;
+    padding:34px 38px;
+    gap:34px;
+    max-width:100%;
     width:fit-content;
   }
-  .link-block.big .link-url{ font-size:2.6rem; white-space:nowrap; }
-  .link-block.big .link-note{ font-size:1.2rem; margin-top:16px; white-space:nowrap; }
+  .link-block.big .link-url{ font-size:2rem; white-space:nowrap; }
+  .link-block.big .link-note{ font-size:1.05rem; margin-top:14px; white-space:nowrap; }
 
   /* ---- product screenshot layout (Chat/Cowork/Code slides) ---- */
   .shot-layout{
@@ -841,6 +841,8 @@
       height:720px;
     }
     .slide:last-child{ page-break-after:auto; break-after:auto; }
+    .slide{ overflow:hidden; }
+    html, body{ width:1280px; margin:0; padding:0; }
     .no-print{ display:none !important; }
     .shot.empty{ display:none !important; }
     /* 겉장 스탬프: vw 단위가 인쇄에서 다르게 잡혀 화면 밖으로 나감 */
@@ -1708,8 +1710,8 @@ document.getElementById('linkUrl').textContent = PRACTICE_URL;
 if (window.QRCode) {
   new QRCode(document.getElementById('qrBox'), {
     text: PRACTICE_URL,
-    width: 220,
-    height: 220,
+    width: 190,
+    height: 190,
     colorDark: "#10233F",
     colorLight: "#ffffff"
   });
