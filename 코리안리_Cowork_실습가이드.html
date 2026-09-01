@@ -2736,29 +2736,39 @@ E6 원본 (10점) : 원본 파일을 수정하거나 삭제했는가
 
   // 처음 접속할 때만 시작 챕터 맨 위에서 엽니다. 새로고침은 보던 자리를 지킵니다
   var SKEY = KEY + ":visit";
-  var revisit = false, savedY = 0;
+  var GRACE = 30 * 60 * 1000;
+  var marked = false;
   try {
-    revisit = !!sessionStorage.getItem(SKEY);
+    marked = !!sessionStorage.getItem(SKEY);
     sessionStorage.setItem(SKEY, "1");
-    savedY = parseInt(sessionStorage.getItem(SKEY + ":y"), 10) || 0;
-  } catch (e) { revisit = false; savedY = 0; }
+  } catch (e) { marked = false; }
+  // 강력 새로고침으로 세션 표시가 지워져도 최근까지 보던 중이면 이어서 엽니다
+  var seen = parseInt(state.__seen, 10) || 0;
+  var revisit = marked || (seen > 0 && (Date.now() - seen) < GRACE);
 
   var backTo = (revisit && chipEls[state.__pane]) ? state.__pane : "intro";
-  var backY = (backTo === "intro" && !revisit) ? 0 : savedY;
+  var backY = revisit ? (parseInt(state.__y, 10) || 0) : 0;
   go(backTo, true);
   paint();
   window.scrollTo(0, backY);
   window.addEventListener("load", function () { window.scrollTo(0, backY); });
 
-  // 보던 위치를 기억해 둡니다
+  // 보던 위치와 마지막으로 본 시각을 남깁니다
+  function mark() {
+    state.__y = window.pageYOffset || 0;
+    state.__seen = Date.now();
+    save(state);
+  }
   var syTimer = null;
   window.addEventListener("scroll", function () {
     if (syTimer) { return; }
-    syTimer = window.setTimeout(function () {
-      syTimer = null;
-      try { sessionStorage.setItem(SKEY + ":y", String(window.pageYOffset || 0)); } catch (e) {}
-    }, 150);
+    syTimer = window.setTimeout(function () { syTimer = null; mark(); }, 200);
   }, { passive: true });
+  window.addEventListener("pagehide", mark);
+  document.addEventListener("visibilitychange", function () {
+    if (document.hidden) { mark(); }
+  });
+  mark();
 
   // ── 인쇄 시에는 버튼 없이도 전체 보기와 동일하게 트랙 블록을 펼칩니다 ──
   var wasShowAll = false;
