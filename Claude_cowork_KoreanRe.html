@@ -101,7 +101,8 @@
     width:150px;height:150px;
     border-radius:50%;
     border:2.5px solid var(--accent);
-    display:flex; align-items:center; justify-content:center;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    line-height:1.5;
     color:var(--accent-ink);
     font-family:var(--mono);
     font-size:.72rem;
@@ -860,6 +861,17 @@
 
 <div class="deck" id="deck">
 
+  <section class="slide title-slide" data-mod="0" id="s0">
+    <div class="eyebrow">코리안리재보험 · 정보기술팀 · Claude Cowork 교육</div>
+    <h1>일하는 방식이<br>달라졌습니다. 잘 시켜야 합니다!</h1>
+    <p class="lead">Claude Chat · Code · Cowork — 그리고 오늘 실습을 시작하기 전에 세워야 할 기준 하나.</p>
+    <div class="meta">
+      <span>2026.09.02</span>
+      <span>MZC</span>
+    </div>
+    <div class="stamp-mark"><span>30 MIN</span><span>LECTURE</span></div>
+  </section>
+
   <section class="slide" data-mod="0" id="s-intro">
     <div class="eyebrow">오늘의 진행자</div>
     <h2>오늘 함께합니다</h2>
@@ -877,17 +889,6 @@
         <p>파일이든 생각이든 일단 정규화부터 하는 사람 — 모든 폴더에 기본키(Primary Key)가 있다고 믿는 분입니다. 정리가 특기라  데이터 정리를 기가막히게 해서 AI 부리는 것도 남다르게 잘합니다.</p>
       </div>
     </div>
-  </section>
-
-  <section class="slide title-slide" data-mod="0" id="s0">
-    <div class="eyebrow">코리안리재보험 · 정보기술팀 · Claude Cowork 교육</div>
-    <h1>일히는 방식이<br>달라졌습니다. 잘 시켜야 합니다!</h1>
-    <p class="lead">Claude Chat · Code · Cowork — 그리고 오늘 실습을 시작하기 전에 세워야 할 기준 하나.</p>
-    <div class="meta">
-      <span>2026.09.02</span>
-      <span>MZC</span>
-    </div>
-    <div class="stamp-mark"><span>10 MIN</span><span>LECTURE</span></div>
   </section>
 
   <section class="slide" data-mod="0" id="m0-goals">
@@ -910,6 +911,20 @@
         <p>여섯 항목 100점 만점으로 결과를 채점합니다. <b>오늘의 핵심.</b></p>
       </div>
     </div>
+  </section>
+
+  <section class="slide" data-mod="0" id="s-toc">
+    <div class="eyebrow">오늘의 순서</div>
+    <h2>여섯 걸음으로 갑니다</h2>
+    <div class="agenda-list">
+      <div class="agenda-item"><span class="idx">01</span><span class="t">패러다임의 변화</span><span class="d">Chat에서 실행하는 AI로 · 5분</span></div>
+      <div class="agenda-item"><span class="idx">02</span><span class="t">작업 환경과 맥락 세팅</span><span class="d">권한 · 지침 · 메모리 · 6분</span></div>
+      <div class="agenda-item"><span class="idx">03</span><span class="t">넓히는 도구들</span><span class="d">커넥터 · 스킬 · 예약 · 5분</span></div>
+      <div class="agenda-item"><span class="idx">04</span><span class="t">실전 유즈케이스</span><span class="d">업무 사례 셋 · 3분</span></div>
+      <div class="agenda-item"><span class="idx">05</span><span class="t">안전하게 위임하고 검증하는 법</span><span class="d">브리프 · 승인 · 채점 · 8분</span></div>
+      <div class="agenda-item"><span class="idx">06</span><span class="t">리스크 관리와 정착</span><span class="d">골든 룰 · 다음 단계 · 3분</span></div>
+    </div>
+    <p class="footnote">이후 <b>120분 실습</b>이 이어집니다. 앞의 여섯 걸음은 실습을 위한 준비입니다.</p>
   </section>
 
   <section class="slide" data-mod="1" id="m1-shift">
@@ -1502,9 +1517,10 @@
 
 <script>
 const notes = [
-`안녕하세요. 오늘 진행은 메가존클라우드 Data&AI Unit의 유원영, 김지민이 함께합니다. 편하게 들으시고, 궁금한 건 중간에 바로 물어봐 주세요.<span class="cue"><b>살 붙일 거리</b>두 사람 역할 나눔 안내 · 질문은 중간에 편하게 · 실습 비중이 더 크다는 예고</span>`,
 `오늘은 Claude에게 질문을 잘하는 시간이 아닙니다. 일을 맡기는 방법을 연습합니다. 이미 Claude를 써보신 분이라면, 오늘 달라지는 건 프롬프트 문장 하나가 아니라 일하는 방식 자체예요.<span class="cue"><b>살 붙일 거리</b><i>“Claude 써보신 분?”</i> 손 들어보기 · 챗으로만 써오신 분들 비율 확인 · 오늘은 파일까지 맡긴다는 예고</span>`,
+`안녕하세요. 오늘 진행은 메가존클라우드 Data&AI Unit의 유원영, 김지민이 함께합니다. 편하게 들으시고, 궁금한 건 중간에 바로 물어봐 주세요.<span class="cue"><b>살 붙일 거리</b>두 사람 역할 나눔 안내 · 질문은 중간에 편하게 · 실습 비중이 더 크다는 예고</span>`,
 `오늘 30분 동안 하려는 건 딱 세 가지입니다. 첫째, 어떤 업무를 맡길 수 있고 어떤 건 내가 해야 하는지 구분하는 것. 둘째, 그걸 제대로 맡기는 것. 셋째, 나온 결과를 검증하는 것. 구분하고, 맡기고, 검증한다. 오늘 이 세 단어만 기억하셔도 됩니다. 그중에서도 세 번째가 오늘의 핵심이에요.<span class="cue"><b>살 붙일 거리</b>이 세 단어가 오늘 목차이기도 하다 · 세 번째에 시간 제일 많이 쓴다 · <i>“결과를 안 믿고 확인하는 게 실력”</i></span>`,
+`여섯 걸음입니다. 앞의 넷은 Cowork가 무엇이고 무엇을 할 수 있는지, 다섯 번째가 오늘의 핵심인 안전한 위임과 검증, 여섯 번째가 교육 끝나고 어떻게 이어갈지입니다. 강의는 30분 정도고, 그다음 실습이 두 시간입니다. 오늘 시간의 대부분은 실습이라고 보시면 됩니다.<span class="cue"><b>살 붙일 거리</b>05가 가장 두껍다고 짚기 · 실습 시간 안내 · 중간에 쉬는 시간 있는지 알려주기</span>`,
 `차이는 똑똑함이 아니라 손입니다. Chat은 답을 알려주고 실행은 사람이 해요. Cowork는 내 파일을 직접 열고 고치고 만듭니다. 개발자들이 터미널에서 쓰던 방식을 그대로 가져오되, 터미널을 없앤 게 Cowork라고 보시면 됩니다.<span class="cue"><b>살 붙일 거리</b>비유 — 조언자 vs 손이 있는 동료 · 지금까지는 복사·붙여넣기가 사람 몫이었다 · 그 반복이 사라지는 지점</span>`,
 `먼저 Chat입니다. 여러분이 익숙한 대화형이죠. 물으면 답해주고, 실제로 파일을 만드는 건 사람이 합니다.<span class="cue"><b>살 붙일 거리</b>화면에서 대화창 짚기 · 여기서 나온 표를 엑셀로 옮기던 경험 물어보기</span>`,
 `Cowork는 다릅니다. 목표만 설명하면 여러 파일과 앱을 오가며 알아서 해냅니다. 코드는 전혀 몰라도 됩니다. 오늘 실습에서 쓸 게 바로 이겁니다.<span class="cue"><b>살 붙일 거리</b>화면에서 파일 목록 짚기 · <i>“이게 오늘 쓸 화면입니다”</i> · Chat 토글과 나란히 있다는 점</span>`,
