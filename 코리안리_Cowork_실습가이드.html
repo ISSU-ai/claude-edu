@@ -807,6 +807,38 @@ body{margin:0}</style>
       color:var(--ink-3);margin:0 0 5px;
     }
   }
+  /* ══════════ 앞 챕터에서 넘어온 내용 ══════════ */
+  .carry{
+    border:1px dashed var(--accent);background:var(--accent-soft);
+    padding:12px 15px;
+  }
+  .carry > .lbl{
+    display:flex;align-items:center;gap:12px;
+    font-family:var(--mono);font-size:10.5px;letter-spacing:var(--tracking-label);
+    text-transform:uppercase;color:var(--ink-2);margin:0 0 9px;
+  }
+  .carry > .lbl .cp{
+    margin-left:auto;flex:none;font-family:var(--mono);font-size:10.5px;
+    letter-spacing:var(--tracking-label);text-transform:uppercase;
+    border:1px solid var(--rule-2);background:var(--surface);color:var(--ink-2);
+    padding:3px 10px;border-radius:3px;cursor:pointer;
+    transition:border-color .14s,color .14s;
+  }
+  .carry > .lbl .cp:hover{border-color:var(--accent);color:var(--accent);}
+  .carry > .lbl .cp.done{border-color:var(--accent);color:var(--accent);}
+  .carry .val{
+    font-size:var(--text-small);line-height:var(--leading-box);color:var(--ink);
+    white-space:pre-wrap;overflow-wrap:anywhere;margin:0;
+  }
+  .carry .val + .val{margin-top:8px;padding-top:8px;border-top:1px solid var(--rule);}
+  .carry .val .k{
+    display:block;font-family:var(--mono);font-size:10px;color:var(--ink-3);
+    text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px;
+  }
+  .carry.empty{border-color:var(--rule-2);background:var(--paper);}
+  .carry.empty .val{color:var(--ink-3);}
+  .carry.empty > .lbl .cp{display:none;}
+
   /* ══════════ 간격 체계 ══════════
      가까이 두면 한 덩어리로, 떨어뜨리면 다른 맥락으로 읽힙니다.
        tight  설명 문단 → 그 문단이 가리키는 것
@@ -816,7 +848,7 @@ body{margin:0}</style>
      :has()를 못 읽는 브라우저에서는 전부 block 간격으로 보입니다. 읽는 데 지장 없습니다. */
 
   .snip,.note,.tw,.memo,.bandkey,.score,
-  .dl,.tree,.pickfirst,.tracks,.howto,.recap{margin-bottom:var(--gap-block);}
+  .dl,.tree,.pickfirst,.tracks,.howto,.recap,.carry{margin-bottom:var(--gap-block);}
   .made,.loop{margin-top:var(--gap-block);margin-bottom:0;}
 
   h3{margin:var(--gap-topic) 0 var(--gap-tight);}
@@ -828,7 +860,7 @@ body{margin:0}</style>
   .step > p:has(+ .dl),.step > p:has(+ .tree),.step > p:has(+ .pickfirst),
   .step > p:has(+ .tracks),.step > p:has(+ .made),.step > p:has(+ figure),
   .step > p:has(+ .loop),.step > p:has(+ .task),.step > p:has(+ .recap),
-  .step > p:has(+ .swipe){margin-bottom:var(--gap-tight);}
+  .step > p:has(+ .swipe),.step > p:has(+ .carry){margin-bottom:var(--gap-tight);}
   /* 표 위에 붙는 좌우 스크롤 안내가 인접 관계를 끊지 않게 합니다 */
   .swipe{margin:0;}
   h3 + .made,h3 + .loop,p + .made,p + .loop{margin-top:var(--gap-tight);}
@@ -841,6 +873,7 @@ body{margin:0}</style>
   .tw:has(+ .task),.note:has(+ .task),.tracks:has(+ .task),
   .memo:has(+ .memo),.note:has(+ .note),.snip:has(+ .snip),
   .snip:has(+ .memo),.snip:has(+ .bandkey),
+  .carry:has(+ .memo),.carry:has(+ .snip),.carry:has(+ .bandkey),.carry:has(+ .task),
   .bandkey:has(+ .score),.tw:has(+ .note),.made:has(+ .task),.made:has(+ .note),
   .pickfirst:has(+ .snip),.pickfirst:has(+ .note){margin-bottom:var(--gap-pair);}
 
@@ -1613,6 +1646,8 @@ E6 원본 (10점) : 원본 파일을 수정하거나 삭제했는가
 좋게 포장하지 말고 솔직하게 답해줘.</pre></div>
   </div>
 
+  <div class="carry" data-carry="memoRunSlow,memoRun" data-title="2 실행에서 직접 보신 것" data-empty="2 실행에서 이상해 보였던 것을 적으면 여기에 나옵니다. 채점 결과와 대조해 보세요."></div>
+
   <div class="bandkey">
     <span class="risk"><b>0~59</b> 위험 · 이대로 보고에 쓰지 않습니다</span>
     <span class="warn"><b>60~79</b> 주의 · 사람이 다시 봐야 합니다</span>
@@ -1682,6 +1717,8 @@ E6 원본 (10점) : 원본 파일을 수정하거나 삭제했는가
 
   <h3>먼저 본인 문장으로 씁니다</h3>
   <p>예시를 보기 전에 직접 적어보는 것이 중요합니다. 3분입니다.</p>
+
+  <div class="carry" data-carry="memoFail" data-title="3 EVAL에서 받은 문장" data-empty="3 Eval에서 “다음에 쓸 문장”을 붙여넣으면 여기에 나옵니다"></div>
 
   <div class="memo">
     <label for="mx">실패한 항목을 막을 문장 (내가 쓴 것)</label>
@@ -1798,6 +1835,8 @@ E6 원본 (10점) : 원본 파일을 수정하거나 삭제했는가
       <small>프롬프트는 한 글자도 바꾸지 않습니다.<br>
       달라진 게 지침 때문이라는 걸 확인해야 합니다.</small></span></label>
 
+  <div class="carry" data-carry="sv1" data-title="3 EVAL에서 받은 1차 점수" data-empty="3 Eval에서 점수를 적으면 여기에 나옵니다"></div>
+
   <div class="bandkey">
     <span class="risk"><b>0~59</b> 위험 · 이대로 보고에 쓰지 않습니다</span>
     <span class="warn"><b>60~79</b> 주의 · 사람이 다시 봐야 합니다</span>
@@ -1862,6 +1901,8 @@ E6 원본 (10점) : 원본 파일을 수정하거나 삭제했는가
 
   <h3>1 · 절차를 스킬로 저장합니다</h3>
   <p>4 수정에서 점수를 올려준 문장들이 그대로 절차가 됩니다.</p>
+
+  <div class="carry" data-carry="memoFix,memoFail" data-title="지금까지 적으신 규칙" data-empty="3 Eval과 4 수정에서 적으신 문장이 여기에 모입니다"></div>
 
   <div class="pickfirst" data-track="none">
     <b>트랙을 먼저 고릅니다</b>
@@ -2295,6 +2336,8 @@ E6 원본 (10점) : 원본 파일을 수정하거나 삭제했는가
   <p>장표도, 준비된 말도 필요 없습니다.<br>
       아래 세 칸을 채우면 그게 그대로 발표문입니다.</p>
 
+  <div class="carry" data-carry="memoMine1,sv1,sv2,svm,memoFix" data-title="앞에서 적으신 것" data-empty="앞 챕터를 채우면 발표 재료가 여기에 모입니다"></div>
+
   <div class="memo">
     <label for="t1">1. 무엇을 맡겼습니까</label>
     <input type="text" id="t1" data-k="memoTalk1" placeholder="예: 매월 부서별 실적 엑셀 3개를 합쳐 요약 만드는 일">
@@ -2470,6 +2513,8 @@ E6 원본 (10점) : 원본 파일을 수정하거나 삭제했는가
       <li>“통과”라는 말을 근거 없이 믿기</li>
       <li>승인 창을 읽지 않고 누르기</li></ul></div>
   </div>
+
+  <div class="carry" data-carry="memoMine1,memoMineEval" data-title="6 내 업무에서 적으신 것" data-empty="6 내 업무를 채우면 여기에 나옵니다"></div>
 
   <div class="memo">
     <label for="m3">다음 주에 Cowork에 맡겨볼 내 업무 1개</label>
@@ -2664,6 +2709,7 @@ E6 원본 (10점) : 원본 파일을 수정하거나 삭제했는가
   });
 
   function paint() {
+    if (typeof paintCarry === "function") { paintCarry(); }
     var done = 0;
     boxes.forEach(function (b) {
       b.parentNode.classList.toggle("on", b.checked);
@@ -2793,6 +2839,98 @@ E6 원본 (10점) : 원본 파일을 수정하거나 삭제했는가
   trackBtns.forEach(function (b) {
     b.addEventListener("click", function () { setTrack(b.dataset.t); });
   });
+  // ── 앞 챕터에서 적은 것을 뒤 챕터에서 다시 보여줍니다 ──
+  var CARRY_LABEL = {
+    memoRunSlow: "[!] 가 붙은 역할",
+    memoRun: "이상해 보였던 것",
+    memoFail: "다음에 쓸 문장",
+    memoFix: "내가 쓴 문장",
+    memoMine1: "무엇을",
+    memoMine2: "무엇으로",
+    memoMine3: "지킬 것",
+    memoMineEval: "통과 기준",
+    sv1: "1차 점수",
+    sv2: "2차 점수",
+    svm: "내 업무 점수"
+  };
+  var SCORE_KEY = { sv1: "memoScoreV1", sv2: "memoScoreV2", svm: "memoScoreMine" };
+  var carries = [].slice.call(document.querySelectorAll(".carry"));
+
+  carries.forEach(function (box) {
+    var lbl = document.createElement("p");
+    lbl.className = "lbl";
+    var name = document.createElement("span");
+    name.textContent = box.dataset.title || "앞에서 적으신 것";
+    lbl.appendChild(name);
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "cp";
+    btn.textContent = "복사";
+    lbl.appendChild(btn);
+    var body = document.createElement("div");
+    body.className = "body";
+    box.appendChild(lbl);
+    box.appendChild(body);
+    btn.addEventListener("click", function () {
+      var text = box.dataset.plain || "";
+      if (!text) { return; }
+      function useFallback() {
+        flash(btn, fallbackCopy(text) ? "복사됨!" : "직접 선택", false);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () {
+          flash(btn, "복사됨!", false);
+        }, useFallback);
+      } else { useFallback(); }
+    });
+  });
+
+  function carryValue(k) {
+    var raw = state[SCORE_KEY[k] || k];
+    return (raw === undefined || raw === null) ? "" : String(raw).trim();
+  }
+
+  function paintCarry() {
+    if (!carries || !carries.length) { return; }
+    carries.forEach(function (box) {
+      var keys = (box.dataset.carry || "").split(",");
+      var body = box.querySelector(".body");
+      if (!body) { return; }
+      var rows = [];
+      keys.forEach(function (k) {
+        k = k.trim();
+        var v = carryValue(k);
+        if (v) { rows.push({ k: CARRY_LABEL[k] || k, v: v, score: !!SCORE_KEY[k] }); }
+      });
+      body.innerHTML = "";
+      if (!rows.length) {
+        box.classList.add("empty");
+        box.dataset.plain = "";
+        var e = document.createElement("p");
+        e.className = "val";
+        e.textContent = box.dataset.empty || "앞 챕터에서 적으면 여기에 나옵니다";
+        body.appendChild(e);
+        return;
+      }
+      box.classList.remove("empty");
+      var plain = [];
+      rows.forEach(function (r) {
+        var line = document.createElement("p");
+        line.className = "val";
+        if (keys.length > 1) {
+          var tag = document.createElement("span");
+          tag.className = "k";
+          tag.textContent = r.k;
+          line.appendChild(tag);
+        }
+        line.appendChild(document.createTextNode(r.score ? r.v + "점" : r.v));
+        body.appendChild(line);
+        plain.push(keys.length > 1 ? (r.k + ": " + r.v) : r.v);
+      });
+      box.dataset.plain = plain.join("\n");
+    });
+  }
+
   // 지난번에 고른 트랙을 그대로 되살립니다
   setTrack(state.__track || "");
 
