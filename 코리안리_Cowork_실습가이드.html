@@ -875,14 +875,15 @@ body{margin:0}</style>
   .made + .task,.made + .note{margin-top:var(--gap-pair);}
 
   /* 한 묶음으로 읽혀야 하는 짝 */
-  .snip:has(+ .task),.memo:has(+ .task),.score:has(+ .task),
+  .snip:has(+ .task),.score:has(+ .task),
   .tw:has(+ .task),.note:has(+ .task),.tracks:has(+ .task),
-  .memo:has(+ .memo),.note:has(+ .note),.snip:has(+ .snip),
-  .memo:has(+ .memo),.memo:has(+ .task){margin-bottom:9px;}
+  .note:has(+ .note),.snip:has(+ .snip),
   .snip:has(+ .memo),.snip:has(+ .bandkey),
   .carry:has(+ .memo),.carry:has(+ .snip),.carry:has(+ .bandkey),.carry:has(+ .task),
   .bandkey:has(+ .score),.tw:has(+ .note),.made:has(+ .task),.made:has(+ .note),
   .pickfirst:has(+ .snip),.pickfirst:has(+ .note){margin-bottom:var(--gap-pair);}
+  /* 메모 칸끼리와 메모 뒤 체크는 더 붙입니다 */
+  .memo:has(+ .memo),.memo:has(+ .task){margin-bottom:9px;}
 
   /* 체크는 붙여 쌓고, 묶음이 끝나면 떨어집니다 */
   .task{margin-bottom:8px;}
@@ -1513,14 +1514,15 @@ body{margin:0}</style>
       인지하고 <strong>다음 챕터에서 수정합니다.</strong></p>
   </div>
 
+  <h3>지금 Claude가 아는 것</h3>
   <div class="tw">
     <table>
-      <thead><tr><th>손잡이</th><th>지금 상태</th><th>채우는 곳</th></tr></thead>
+      <thead><tr><th>항목</th><th>지금</th><th>채우는 곳</th></tr></thead>
       <tbody>
-        <tr><td class="id">무엇을 볼지</td><td>연결한 폴더. 방금 정했습니다</td><td>시작</td></tr>
-        <tr><td class="id">어떤 규칙으로</td><td><strong>비어 있음.</strong> 용어도 단위도 알려준 적이 없습니다</td><td>4 수정</td></tr>
-        <tr><td class="id">어떤 절차로</td><td>1 Plan에서 방금 설계했지만 <strong>저장은 안 됐습니다.</strong> 새 대화를 열면 사라집니다</td><td>5 자산화</td></tr>
-        <tr><td class="id">어디까지 스스로</td><td>Manual. 행동마다 사람이 승인합니다</td><td>5 자산화</td></tr>
+        <tr><td class="id">볼 파일</td><td><strong>연결했습니다.</strong> 시작에서 폴더를 붙였습니다</td><td>끝</td></tr>
+        <tr><td class="id">지킬 규칙</td><td><strong>없습니다.</strong> 용어도 단위도 알려준 적이 없습니다</td><td>4 수정</td></tr>
+        <tr><td class="id">반복할 절차</td><td>1 Plan에서 설계했지만 <strong>저장은 안 됐습니다.</strong> 새 대화를 열면 사라집니다</td><td>5 자산화</td></tr>
+        <tr><td class="id">맡길 범위</td><td><strong>Manual.</strong> 행동마다 사람이 승인합니다</td><td>오늘은 그대로</td></tr>
       </tbody>
     </table>
   </div>
