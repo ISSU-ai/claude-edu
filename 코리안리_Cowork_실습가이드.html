@@ -6,7 +6,7 @@
 <style>*,*::before,*::after{box-sizing:border-box}
 body{margin:0}</style>
 </head>
-<body class="locked">
+<body>
 <meta charset="utf-8">
 <title>Cowork 실습 따라하기</title>
 <style>
@@ -2951,89 +2951,5 @@ E6 원본 (10점) : 원본 파일을 수정하거나 삭제했는가
 })();
 </script>
 
-
-<style>
-  /* ══════════ 접속 코드 ══════════ */
-  body.locked .bar,
-  body.locked .wrap,
-  body.locked footer{ display:none; }
-  .gate{
-    position:fixed; inset:0; z-index:100;
-    background:var(--paper);
-    display:flex; align-items:center; justify-content:center;
-  }
-  .gate.hidden{ display:none; }
-  .gate-box{
-    background:var(--surface); border:1.5px solid var(--ink);
-    padding:44px 38px; width:320px;
-  }
-  .gate-box .kicker{ margin-bottom:22px; }
-  .gate-box h2{
-    font-family:var(--sans); font-size:19px; font-weight:800;
-    margin:0 0 22px; color:var(--ink);
-  }
-  .gate-box input{
-    width:100%; font-family:var(--mono); font-size:14px;
-    padding:11px 12px; border:1.5px solid var(--rule-2);
-    margin-bottom:12px; outline:none; box-sizing:border-box;
-    background:var(--surface); color:var(--ink);
-  }
-  .gate-box input:focus{ border-color:var(--accent); }
-  .gate-box button{
-    width:100%; font-family:var(--mono);
-    background:var(--accent); color:var(--accent-ink);
-    border:none; padding:11px 12px; cursor:pointer;
-    font-size:12.5px; letter-spacing:.04em;
-  }
-  .gate-box button:hover{ filter:brightness(1.12); }
-  .gate-err{
-    font-family:var(--mono); font-size:11px; color:var(--clay);
-    margin:10px 0 0; min-height:1em;
-  }
-  @media print{
-    .gate{ display:none !important; }
-    body.locked .wrap, body.locked footer{ display:block !important; }
-  }
-</style>
-<div class="gate" id="gate">
-  <div class="gate-box">
-    <p class="kicker">코리안리재보험 · Claude Cowork 교육</p>
-    <h2>접속 코드를 입력하세요</h2>
-    <input type="password" id="gatePw" placeholder="ACCESS CODE" autocomplete="off">
-    <button id="gateBtn">입장</button>
-    <p class="gate-err" id="gateErr"></p>
-  </div>
-</div>
-<script>
-/* ---- 접속 코드 ---- */
-(function () {
-  var ACCESS_CODE = "cowork0902";
-  var gateEl = document.getElementById('gate');
-  var gatePw = document.getElementById('gatePw');
-  var gateBtn = document.getElementById('gateBtn');
-  var gateErr = document.getElementById('gateErr');
-
-  function tryEnter(){
-    if(gatePw.value === ACCESS_CODE){
-      document.body.classList.remove('locked');
-      gateEl.classList.add('hidden');
-      sessionStorage.setItem('kr_cowork_auth', '1');
-    } else {
-      gateErr.textContent = '코드가 올바르지 않습니다.';
-      gatePw.value = '';
-      gatePw.focus();
-    }
-  }
-  gateBtn.addEventListener('click', tryEnter);
-  gatePw.addEventListener('keydown', function(e){ if(e.key === 'Enter') tryEnter(); });
-
-  if(sessionStorage.getItem('kr_cowork_auth') === '1'){
-    document.body.classList.remove('locked');
-    gateEl.classList.add('hidden');
-  } else {
-    gatePw.focus();
-  }
-})();
-</script>
 </body>
 </html>
