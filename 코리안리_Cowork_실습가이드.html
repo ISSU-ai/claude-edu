@@ -848,6 +848,11 @@ body{margin:0}</style>
   .carry.empty .val{color:var(--ink-3);}
   .carry.empty > .lbl .cp{display:none;}
 
+  small.aside{
+    display:inline-block;font-size:13.5px;line-height:1.6;color:var(--ink-3);
+    margin-top:4px;
+  }
+
   /* ══════════ 마무리 다음 · 클로징 화면 ══════════ */
   .endgo{display:flex;justify-content:center;margin:var(--gap-topic) 0 0;}
   .endgo button{
@@ -1911,8 +1916,10 @@ E6 원본 (10점)
   <h3>1 · 절차를 스킬로 저장합니다</h3>
   <p>이제까지 진행한 절차를 그대로 정리했습니다. <strong>한 번 겪은 실수는 한 번만 겪으면 됩니다.</strong><br>
       스킬은 그걸 담아두는 곳입니다. 지침은 이 프로젝트에서만 붙지만, 스킬은 이름을 불러 어디서든 씁니다.<br>
-      입력창 왼쪽 <strong>+</strong> → <strong>Skills</strong> → <strong>skill-creator</strong> 를 켜고
-      아래 내용을 주면 스킬 형태로 만들어 줍니다.</p>
+      입력창 왼쪽 <strong>+ &gt; Skills &gt; 스킬관리 &gt; 추가 &gt; 스킬 만들기</strong>를 통하여
+      <code class="k">skills.md</code>로 실행 가이드를 만들 수 있습니다.<br>
+      <small class="aside">(Skills &gt; skill-creator를 사용하면 시간이 다소 걸리지만,
+      단순 md가 아닌 자동화 app까지 만들 수 있습니다)</small></p>
 
   <div class="pickfirst" data-track="none">
     <b>트랙을 먼저 고릅니다</b>
