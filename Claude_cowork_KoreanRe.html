@@ -259,12 +259,15 @@
   /* ---- closing slide ---- */
   .flow{ display:flex; align-items:stretch; gap:0; margin-top:18px; flex-wrap:wrap; }
   .flow .step{
+    flex:1 1 0;              /* 박스를 균등 폭으로 나눈다 */
+    min-width:0;
     background:var(--card);
     border:1px solid var(--line);
     padding:16px 18px;
-    min-width:120px;
     font-size:.88rem;
+    line-height:1.55;
     color:var(--body);
+    word-break:keep-all;
   }
   .flow .step b{ display:block; font-size:1rem; margin-bottom:4px; color:var(--ink); }
   .flow .arrow{ display:flex; align-items:center; padding:0 8px; color:var(--muted); font-family:var(--mono); }
@@ -870,8 +873,9 @@
 
   <section class="slide title-slide" data-mod="0" id="s0">
     <div class="eyebrow">코리안리재보험 · 정보기술팀 · Claude Cowork 교육</div>
-    <h1>일하는 방식이<br>달라졌습니다. AI Agent와 함께합니다!</h1>
-    <p class="lead">Claude Chat · Code · Cowork — 그리고 오늘 실습을 시작하기 전에 세워야 할 기준 하나.</p>
+    <h1>일하는 방식이 달라졌습니다. <br>Claude Cowork와 함께합니다!</h1>
+    <p class="lead">Claude Cowork - AI Agent와 친해지는 시간 </p>
+    <p class="lead"><b>열린 마음으로 준비해주세요</b> </p>
     <div class="meta">
       <span>2026.09.02</span>
       <span>MZC</span>
@@ -884,16 +888,16 @@
     <h2>오늘 함께합니다</h2>
     <div class="card-row">
       <div class="card hi">
-        <span class="num">교육자 1</span>
+        <span class="num">Part 1</span>
         <h3>유원영</h3>
         <span class="role">메가존클라우드 · Data &amp; AI Unit</span>
         <p>사람보다 AI한테 잔소리를 더 많이 하는 사람</p>
       </div>
       <div class="card">
-        <span class="num">교육자 2</span>
+        <span class="num">Part 2</span>
         <h3>김지민</h3>
         <span class="role">메가존클라우드 · Data &amp; AI Unit</span>
-        <p>파일이든 생각이든 일단 정규화부터 하는 사람, 정리가 특기라  데이터 정리를 기가막히게 해서 AI 부리는 것도 남다르게 잘합니다.</p>
+        <p>파일이든 생각이든 일단 정규화부터 하는 사람, <br>정리가 특기라 데이터 정리를 기가막히게 해서 AI 부리는 것도 남다르게 잘합니다.</p>
       </div>
     </div>
   </section>
@@ -905,12 +909,12 @@
       <div class="card">
         <span class="num">01</span>
         <h3>업무를 구분한다</h3>
-        <p>맡겨도 되는 일과 내가 직접 해야 할 일을 가려내실수 있습니다.</p>
+        <p>시켜도 되는 일과 내가 직접 해야 할 일을 가려내실수 있습니다.</p>
       </div>
       <div class="card">
         <span class="num">02</span>
-        <h3>맡긴다</h3>
-        <p>AI에게 간단히 정리해 넘기고, 일을 맡겨버립니다.</p>
+        <h3>시킨다</h3>
+        <p>AI에게 간단히 정리해 넘기고, 일을 시켜버립니다.</p>
       </div>
       <div class="card hi">
         <span class="num">03</span>
@@ -926,7 +930,7 @@
     <div class="agenda-list">
       <div class="agenda-item"><span class="idx">01</span><span class="t">패러다임의 변화</span><span class="d">Chat에서 실행하는 AI로 · 5분</span></div>
       <div class="agenda-item"><span class="idx">02</span><span class="t">작업 환경과 맥락 세팅</span><span class="d">권한 · 지침 · 메모리 · 6분</span></div>
-      <div class="agenda-item"><span class="idx">03</span><span class="t">넓히는 도구들</span><span class="d">커넥터 · 스킬 · 예약 · 5분</span></div>
+      <div class="agenda-item"><span class="idx">03</span><span class="t">업무의 범위를 넓히는 도구들</span><span class="d">커넥터 · 스킬 · 예약 · 5분</span></div>
       <div class="agenda-item"><span class="idx">04</span><span class="t">유즈케이스</span><span class="d">업무 사례 셋 · 3분</span></div>
       <div class="agenda-item"><span class="idx">05</span><span class="t">안전하게 위임하고 검증하는 법</span><span class="d">브리프 · 승인 · 채점 · 8분</span></div>
       <div class="agenda-item"><span class="idx">06</span><span class="t">리스크 관리와 정착</span><span class="d">골든 룰 · 다음 단계 · 3분</span></div>
@@ -945,7 +949,7 @@
     <h2>질문하는 AI에서, 실행하는 AI로</h2>
     <p class="lead">Chat이 <b>검색하는 도구</b>라면, Cowork는 내 파일을 직접 다루는 <b>실행하는 도구</b>이자 내 일을 대신하는 AI Agent입니다.</p>
     <div class="eval-def">
-      Cowork는 개발자들이 쓰는 Claude Code와 비슷한 구조를 갖고있지만 비개발자들이 더 친숙하게 접근하기 용이합니다.<span class="ref">[1]</span> 
+      Cowork는 개발자들이 쓰는 Claude Code와 비슷한 구조를 갖고있지만 비개발자들이 접근하기 용이합니다.<span class="ref">[1]</span> 
     </div>
   </section>
 
@@ -954,7 +958,7 @@
     <h2>Chat — 대화</h2>
     <div class="shot-layout">
       <div class="shot-text">
-        <p class="lead">Claude는 일반적인 턴바이턴 대화입니다. 사람이 물으면 AI는 답을 하고, 실행은 사람이 답을 받아서 직접 합니다.</p>
+        <p class="lead">Claude는 일반적인 턴바이턴 대화입니다. <br>사람이 물으면 AI는 답을 하고, <br>실행은 사람이 답을 받아서 직접 합니다.</p>
         <div class="eval-def">
           설정 없이 바로 시작 · 대화의 주체는 사용자가 됩니다. 
         </div>
@@ -979,10 +983,10 @@
 
   <section class="slide" data-mod="1" id="s4">
     <div class="eyebrow">01 · 패러다임의 변화</div>
-    <h2>Code — 구축</h2>
+    <h2>Code — 개발</h2>
     <div class="shot-layout">
       <div class="shot-text">
-        <p class="lead">소프트웨어를 만드는 개발자를 위한 도구라고 생각하시면 편하나 개발기술을 약간 익히시면 개인적으로 커스텀된 웹/앱을 만들어보시는걸 추천합니다.</p>
+        <p class="lead">소프트웨어를 만드는 개발자를 위한 도구라고 생각하시면 됩니다.<br>개인적으로 커스텀된 웹/앱을 만들어보시는걸 추천합니다.</p>
         <div class="eval-def">
           오늘은 다루지 않습니다!
         </div>
@@ -996,10 +1000,10 @@
     <h2>Chat과 Cowork, 다른점 다시보기</h2>
     <table class="approval">
       <tr><th>기준</th><th>Chat</th><th>Cowork</th></tr>
-      <tr><td class="mode">역할</td><td>물어보면 답을 준다</td><td><b>일을 한다, 일을 끝낸다</b></td></tr>
-      <tr><td class="mode">입력</td><td>텍스트를 붙여넣는다</td><td><b>폴더와 파일에 직접 접근한다</b></td></tr>
+      <tr><td class="mode">역할</td><td>물어보면 답을 한다</td><td><b>일을 한다, 일을 끝낸다</b></td></tr>
+      <tr><td class="mode">입력</td><td>텍스트를 넣는다</td><td><b>텍스트도 넣고, 폴더와 파일, 서비스(앱)에 직접 접근한다</b></td></tr>
       <tr><td class="mode">진행</td><td>질문 하나에 답 하나</td><td><b>계획 → 실행 → 산출물</b></td></tr>
-      <tr><td class="mode">결과</td><td>대화창 안의 글</td><td><b>열어볼 수 있는 파일</b></td></tr>
+      <tr><td class="mode">결과</td><td>대화창 안의 글</td><td><b>열어볼 수 있는 파일 등?</b></td></tr>
     </table>
   </section>
 
@@ -1010,7 +1014,7 @@
       <div class="card">
         <span class="num">A</span>
         <h3>로컬 제어</h3>
-        <p>내 폴더내의 파일들을 직접 읽고 고치고 만듭니다. <br>모든 행동은 승인을 거칩니다.</p>
+        <p>내 폴더내의 파일들을 직접 읽고 고치고 만듭니다. <br>모든 행동은 <b>승인</b>을 거칩니다.</p>
       </div>
       <div class="card">
         <span class="num">B</span>
@@ -1020,14 +1024,14 @@
       <div class="card">
         <span class="num">C</span>
         <h3>백그라운드 실행</h3>
-        <p>노트북을 덮어도 계속됩니다. 단, 내 파일(폴더)을 쓰는 작업은 예외.</p>
+        <p>노트북을 덮어도 계속됩니다. <br>단, 내 파일(폴더)을 쓰는 작업은 예외.</p>
       </div>
     </div>
   </section>
 
   <section class="slide divider-slide" data-mod="2" id="d2">
     <div class="mod-num">MODULE 02</div>
-    <h1>맡기기 전에,<br>작업 공간 설정</h1>
+    <h1>일을 시키기 전,<br>작업 공간 설정</h1>
     <p class="lead">권한을 어디까지 열지, 규칙을 어디에 적어둘지.</p>
   </section>
 
@@ -1044,7 +1048,7 @@
       <div>├── <span class="dir">02_참고자료/</span> <span class="cmt">— 기준·양식</span></div>
       <div>└── <span class="dir">03_결과물/</span> <span class="cmt">— 만들어진 파일</span></div>
     </div>
-    <p class="footnote">폴더 구조에 정해진 규칙은 없습니다. 원본과 결과물만 섞지 마세요. <br>원본을 사수하세요! AI는 책임지지 않습니다.</p>
+    <p class="footnote">폴더 구조에 정해진 규칙은 없습니다. <br><b>원본과 결과물만 섞지 마세요.</b> <br>AI는 책임지지 않습니다.</p>
     <figure class="shot" data-cap="작업 폴더가 연결된 상태">
       <img src="assets/02-folder-connected.png" alt="작업 폴더가 연결된 화면" onerror="this.parentNode.classList.add('empty')">
     </figure>
@@ -1095,7 +1099,7 @@
       <text x="344" y="286" font-family="var(--mono)" font-size="11.5" fill="var(--muted)">안쪽일수록 좁고 구체적</text>
     </svg>
     <div class="eval-def">
-      상위 계층은 하위계층을 덮습니다 — 전역 지침에 <b>“지우기 전에 물어봐”</b> 한 줄만 적어두면 모든 프로젝트에서 지켜집니다.
+      당연하게도 상위 계층은 하위계층을 포함합니다 — 전역 지침에 <b>“지우기 전에 물어봐”</b> 한 줄만 적어두면 모든 프로젝트에서 지켜집니다.
     </div>
   </section>
 
@@ -1126,25 +1130,25 @@
       <div class="rule-card">
         <div class="rname">01 · CLEAR OUTCOME</div>
         <h3>결과물을 정확하게 명시하기</h3>
-        <p>“요약해줘”가 아니라 “2페이지 메모로 써줘”. 무엇이 나와야 끝인지 정확하게 정합니다.</p>
+        <p>“요약해줘”가 아니라 “xx 폴더의 abc.xlxs 템플릿 파일을 복사해서 그곳의 a sheet에 넣어줘" <br>무엇이 나와야 하는지 정확하게 정합니다.</p>
       </div>
       <div class="rule-card">
         <div class="rname">02 · CLEAN CONTEXT</div>
-        <h3>입력 정돈하기</h3>
-        <p>관련 없는 파일은 빼둡니다. 관련없는 자료는 지저분한 결과를 불러올 수 있습니다.</p>
+        <h3>입력값 정돈하기</h3>
+        <p>관련 없는 파일은 빼둡니다. <br>관련없는 자료는 지저분한 결과를 불러올 수 있습니다.</p>
       </div>
       <div class="rule-card">
         <div class="rname">03 · DEFINED FORMAT</div>
         <h3>형식 지정하기</h3>
-        <p>열 구성 · 단위 · 차트 여부까지 적습니다. 정확한 지침을 주지 않으면 매번 다른 모양이 나옵니다.</p>
+        <p>열 구성 · 단위 · 차트 여부까지 적습니다. <br>정확한 지침을 주지 않으면 매번 다른 모양이 나옵니다.</p>
       </div>
     </div>
   </section>
 
   <section class="slide divider-slide" data-mod="3" id="d3">
     <div class="mod-num">MODULE 03</div>
-    <h1>코워크는<br>혼자 일하지 않습니다</h1>
-    <p class="lead">업무 도구에 붙이고, 절차를 저장하고, 시간을 맡깁니다.</p>
+    <h1>Claude Cowork는<br>혼자 일하지 않습니다</h1>
+    <p class="lead">업무 도구에 붙이고, 절차를 저장하고, 규칙적으로 일합니다.</p>
   </section>
 
   <section class="slide" data-mod="3" id="m3-connectors">
@@ -1602,7 +1606,7 @@ const syncChannel = ('BroadcastChannel' in window) ? new BroadcastChannel('kr_co
 
 const MODULES = [
   ['00','오프닝'], ['01','패러다임의 변화'], ['02','작업 환경과 맥락 세팅'],
-  ['03','넓히는 도구들'], ['04','유즈케이스'], ['05','안전하게 위임하고 검증하는 법'],
+  ['03','업무의 범위를 넓히는 도구들'], ['04','유즈케이스'], ['05','안전하게 위임하고 검증하는 법'],
   ['06','리스크 관리와 정착'], ['07','실습으로']
 ];
 const slideMod = slides.map(s => parseInt(s.dataset.mod || '0', 10));
